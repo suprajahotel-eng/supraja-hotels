@@ -1,3 +1,25 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hotels in Hyderabad | Supraja Hotels Official Website",
+  description:
+    "Book comfortable stays at Supraja Hotels in Hyderabad. Explore Hotel Supraja Cyber View, Hotel Supraja Residency and Hotel Supraja Lodge with direct booking support.",
+  keywords: [
+    "Hotels in Hyderabad",
+    "Hotel booking Hyderabad",
+    "Hotels near Hitech City",
+    "Hotels in Madhapur",
+    "Hotels in Chandanagar",
+    "Budget hotels Hyderabad",
+  ],
+  openGraph: {
+    title: "Hotels in Hyderabad | Supraja Hotels",
+    description:
+      "Comfortable stays, prime locations and trusted hospitality across Hyderabad.",
+    images: ["/images/homepage/hero.webp"],
+    type: "website",
+  },
+};
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star, ShieldCheck } from "lucide-react";

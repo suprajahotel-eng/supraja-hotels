@@ -5,10 +5,44 @@ export const hotels = [
     name: "Hotel Supraja Cyber View",
     phone: "9550776161",
     whatsapp: "9550776161",
+    email: "suprajacyberviewhotel@gmail.com",
     location: "Madhapur, Hyderabad",
     shortDescription: "Comfortable stay near Hitech City and Madhapur.",
     description:
       "Hotel Supraja Cyber View offers comfortable rooms, direct booking support and easy access to Hitech City, Madhapur and Hyderabad's business district.",
+    seo: {
+      focusKeyword: "Hotel in Madhapur Hyderabad",
+      metaTitle: "Hotel in Madhapur Hyderabad | Hotel Supraja Cyber View",
+      metaDescription:
+        "Hotel in Madhapur Hyderabad offering comfortable rooms, direct booking support and convenient access to Hitech City and Madhapur.",
+      synonyms: [
+        "Hotels near Hitech City",
+        "Madhapur hotel stay",
+        "Business hotel in Hyderabad",
+        "Hotel near Cyber Towers",
+        "Accommodation in Madhapur",
+      ],
+      tags: [
+        "Hotel in Madhapur Hyderabad",
+        "Hotel Supraja Cyber View",
+        "Hotels near Hitech City",
+        "Hotels near Cyber Towers",
+        "Business hotel Hyderabad",
+        "Madhapur hotels",
+        "Hyderabad hotel booking",
+        "Direct hotel booking",
+        "Supraja Hotels",
+        "Hotels in Hyderabad",
+      ],
+      featuredImageAlt:
+        "Hotel in Madhapur Hyderabad at Hotel Supraja Cyber View",
+      ogTitle: "Hotel Supraja Cyber View | Comfortable Stay in Madhapur",
+      ogDescription:
+        "Book Hotel Supraja Cyber View for a comfortable stay near Hitech City, Madhapur and key business locations in Hyderabad.",
+      ogImage: "/images/cyber-view/hero.webp",
+    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1584470401276!2d78.37846297462835!3d17.45212880093779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93128214499d%3A0xa765183000594e85!2sHotel%20Supraja%20Cyber%20View%20Hitech%20City!5e0!3m2!1sen!2sin!4v1781237671284!5m2!1sen!2sin",
     images: {
       hero: "/images/cyber-view/hero.webp",
       gallery: [
@@ -36,10 +70,44 @@ export const hotels = [
     name: "Hotel Supraja Residency",
     phone: "9346316161",
     whatsapp: "9346316161",
+    email: "residency.suprajahotels@gmail.com",
     location: "Chandanagar, Hyderabad",
     shortDescription: "Trusted stay in Chandanagar.",
     description:
       "Hotel Supraja Residency provides clean rooms, convenient access to business locations and direct booking assistance.",
+    seo: {
+      focusKeyword: "Hotel in Chandanagar Hyderabad",
+      metaTitle: "Hotel in Chandanagar Hyderabad | Hotel Supraja Residency",
+      metaDescription:
+        "Hotel in Chandanagar Hyderabad offering comfortable accommodation, family-friendly rooms and direct booking assistance.",
+      synonyms: [
+        "Hotels in Chandanagar",
+        "Family hotel in Hyderabad",
+        "Chandanagar hotel stay",
+        "Accommodation in Chandanagar",
+        "Hotel near Lingampally",
+      ],
+      tags: [
+        "Hotel in Chandanagar Hyderabad",
+        "Hotel Supraja Residency",
+        "Hotels in Chandanagar",
+        "Family hotel Hyderabad",
+        "Chandanagar hotels",
+        "Hyderabad accommodation",
+        "Direct hotel booking",
+        "Hotels near Lingampally",
+        "Supraja Hotels",
+        "Hotels in Hyderabad",
+      ],
+      featuredImageAlt:
+        "Hotel in Chandanagar Hyderabad at Hotel Supraja Residency",
+      ogTitle: "Hotel Supraja Residency | Comfortable Stay in Chandanagar",
+      ogDescription:
+        "Book Hotel Supraja Residency in Chandanagar for clean rooms, convenient access and direct booking support.",
+      ogImage: "/images/residency/hero.webp",
+    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.268262228298!2d78.32400007462928!3d17.494703099705735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9291f741f477%3A0x1c532426df884fee!2sSupraja%20Residency!5e0!3m2!1sen!2sin!4v1781237725573!5m2!1sen!2sin",
     images: {
       hero: "/images/residency/hero.webp",
       gallery: [
@@ -65,12 +133,46 @@ export const hotels = [
     id: 3,
     slug: "supraja-lodge",
     name: "Hotel Supraja Lodge",
-    phone: "9346316161",
-    whatsapp: "9346316161",
+    phone: "9348446161",
+    whatsapp: "9348446161",
+    email: "lodge.suprajahotels@gmail.com",
     location: "Chandanagar, Hyderabad",
     shortDescription: "Affordable stay with convenient access.",
     description:
       "Hotel Supraja Lodge offers affordable accommodation, direct booking support and comfortable rooms for business and family travelers.",
+    seo: {
+      focusKeyword: "Budget Hotel in Chandanagar",
+      metaTitle: "Budget Hotel in Chandanagar | Hotel Supraja Lodge",
+      metaDescription:
+        "Budget Hotel in Chandanagar offering affordable rooms, convenient location and direct booking support.",
+      synonyms: [
+        "Affordable hotel in Chandanagar",
+        "Budget stay in Hyderabad",
+        "Low price hotel in Chandanagar",
+        "Economy hotel in Hyderabad",
+        "Chandanagar lodge rooms",
+      ],
+      tags: [
+        "Budget Hotel in Chandanagar",
+        "Hotel Supraja Lodge",
+        "Affordable hotel in Chandanagar",
+        "Budget hotel Hyderabad",
+        "Chandanagar lodge",
+        "Economy hotel Hyderabad",
+        "Direct hotel booking",
+        "Low price hotel Hyderabad",
+        "Supraja Hotels",
+        "Hotels in Hyderabad",
+      ],
+      featuredImageAlt:
+        "Budget Hotel in Chandanagar at Hotel Supraja Lodge",
+      ogTitle: "Hotel Supraja Lodge | Budget Hotel in Chandanagar",
+      ogDescription:
+        "Book Hotel Supraja Lodge for affordable rooms, convenient access and direct booking support in Chandanagar.",
+      ogImage: "/images/lodge/hero.webp",
+    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3805.2547848988615!2d78.31920789678956!3d17.495346900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSupraja%20lodge!5e0!3m2!1sen!2sin!4v1781237773260!5m2!1sen!2sin",
     images: {
       hero: "/images/lodge/hero.webp",
       gallery: [
