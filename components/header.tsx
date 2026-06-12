@@ -71,24 +71,24 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="tel:+919550776161"
-            className="hidden items-center gap-2 rounded-full border border-blue-800 px-4 py-2 text-sm font-bold text-blue-800 transition hover:bg-blue-800 hover:text-white md:flex"
-          >
-            <Phone size={16} />
-            Call
-          </a>
+  <a
+    href="tel:+919550776161"
+    className="hidden items-center gap-2 rounded-full bg-blue-800 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-900 md:flex"
+  >
+    <Phone size={16} />
+    Call
+  </a>
 
-          <a
-            href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-amber-500 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-amber-600"
-          >
-            <MessageCircle size={16} />
-            WhatsApp
-          </a>
-        </div>
+  <a
+    href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 rounded-full bg-green-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-700"
+  >
+    <MessageCircle size={16} />
+    WhatsApp
+  </a>
+</div>
       </div>
     </header>
   );

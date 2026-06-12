@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { MapPin, Star, ShieldCheck } from "lucide-react";
+import { hotels } from "@/data/hotels";
+import AmenitiesSection from "@/components/AmenitiesSection";
 
 export const metadata: Metadata = {
   title: "Hotels in Hyderabad | Supraja Hotels Official Website",
@@ -20,11 +25,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-import Image from "next/image";
-import Link from "next/link";
-import { MapPin, Star, ShieldCheck } from "lucide-react";
-import { hotels } from "@/data/hotels";
-import AmenitiesSection from "@/components/AmenitiesSection";
 
 const hotelDescriptions: Record<string, string> = {
   "supraja-cyber-view":
@@ -48,33 +48,33 @@ export default function HomePage() {
   return (
     <>
       <section className="bg-white">
-        <div className="grid min-h-[430px] md:grid-cols-[38%_62%]">
-          <div className="flex items-center bg-slate-900 px-6 py-16 text-white md:px-16">
+        <div className="grid md:grid-cols-[45%_55%]">
+          <div className="flex min-h-[620px] items-center bg-slate-900 px-6 py-16 text-white md:px-16">
             <div>
               <p className="mb-5 text-sm font-semibold tracking-wide text-amber-300">
                 Supraja Hotels Hyderabad
               </p>
 
-              <h1 className="max-w-md text-4xl font-semibold leading-tight md:text-5xl">
+              <h1 className="max-w-xl text-4xl font-semibold leading-tight md:text-6xl">
                 Comfortable stays in prime Hyderabad locations
               </h1>
 
-              <p className="mt-5 max-w-md text-base leading-7 text-slate-300">
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
                 Clean rooms, practical amenities and trusted hospitality across
                 Supraja Cyber View, Supraja Residency and Supraja Lodge.
               </p>
 
-              <div className="mt-8 flex gap-4">
+              <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/hotels"
-                  className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-950"
+                  className="rounded-full bg-amber-500 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
                 >
                   Explore Hotels
                 </Link>
 
                 <a
                   href="tel:+919550776161"
-                  className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white"
+                  className="rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-950"
                 >
                   Call Now
                 </a>
@@ -82,14 +82,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative min-h-[430px] bg-slate-100">
+          <div className="relative h-[320px] overflow-hidden bg-slate-100 md:h-[620px]">
             <Image
               src="/images/homepage/hero.webp"
               alt="Supraja Hotels Hyderabad"
               fill
               priority
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 62vw"
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 55vw"
             />
           </div>
         </div>
@@ -124,7 +124,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-sm text-slate-500">{hotel.location}</p>
+                  <p className="flex items-center gap-2 text-sm text-slate-500">
+                    <MapPin size={15} />
+                    {hotel.location}
+                  </p>
 
                   <h3 className="mt-2 text-2xl font-semibold text-slate-900">
                     {hotel.name}
@@ -222,7 +225,7 @@ export default function HomePage() {
             href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-amber-500 px-7 py-3 text-sm font-semibold text-slate-950"
+            className="rounded-full bg-green-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
           >
             Book on WhatsApp
           </a>
