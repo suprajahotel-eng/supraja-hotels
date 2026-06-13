@@ -76,6 +76,7 @@ export default async function HotelPage({ params }: Props) {
       addressRegion: "Telangana",
       addressCountry: "IN",
     },
+    areaServed: hotel.seo.targetLocations,
     amenityFeature: hotel.amenities.map((amenity) => ({
       "@type": "LocationFeatureSpecification",
       name: amenity,
@@ -86,34 +87,14 @@ export default async function HotelPage({ params }: Props) {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `Is ${hotel.name} suitable for direct booking?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes. ${hotel.name} supports direct booking through phone and WhatsApp for room availability and guest support.`,
-        },
+    mainEntity: hotel.seo.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
       },
-      {
-        "@type": "Question",
-        name: `Where is ${hotel.name} located?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `${hotel.name} is located in ${hotel.location}, Telangana, India.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Does ${hotel.name} offer essential amenities?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `${hotel.name} offers practical amenities such as ${hotel.amenities.join(
-            ", "
-          )}.`,
-        },
-      },
-    ],
+    })),
   };
 
   return (
@@ -144,8 +125,9 @@ export default async function HotelPage({ params }: Props) {
 
           <p className="mt-4 max-w-4xl leading-8 text-slate-600">
             <strong>{hotel.seo.focusKeyword}</strong> offering comfortable
-            rooms, direct booking support and convenient access to important
-            Hyderabad locations. {hotel.description}
+            rooms, direct booking support and convenient access to{" "}
+            <strong>{hotel.seo.targetLocations.slice(0, 4).join(", ")}</strong>{" "}
+            and nearby Hyderabad locations. {hotel.description}
           </p>
 
           <div className="mt-8">
@@ -174,11 +156,13 @@ export default async function HotelPage({ params }: Props) {
             </p>
 
             <p className="mt-4 leading-8 text-slate-600">
-              Guests choosing {hotel.name} can expect a stay experience focused
-              on comfort, location convenience and responsive guest support.
-              Whether you are visiting Hyderabad for work, family needs,
-              medical appointments, events or a short city stay, the hotel
-              provides essential amenities and simple booking assistance.
+              Guests searching for{" "}
+              <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
+              <strong>{hotel.seo.synonyms[1]}</strong> or{" "}
+              <strong>{hotel.seo.synonyms[2]}</strong> can consider{" "}
+              {hotel.name} for a stay that balances comfort, location and
+              booking support. The property is also useful for guests visiting{" "}
+              <strong>{hotel.seo.targetLocations.join(", ")}</strong>.
             </p>
 
             <h3 className="mt-10 text-2xl font-semibold text-slate-900">
@@ -186,29 +170,12 @@ export default async function HotelPage({ params }: Props) {
             </h3>
 
             <p className="mt-4 leading-8 text-slate-600">
-              <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
-              <strong>{hotel.seo.synonyms[1]}</strong>,{" "}
-              <strong>{hotel.seo.synonyms[2]}</strong>,{" "}
               <strong>{hotel.seo.synonyms[3]}</strong> and{" "}
-              <strong>{hotel.seo.synonyms[4]}</strong> are important search
-              needs for many travelers. {hotel.name} answers these needs with a
-              balance of affordability, comfort, connectivity and trusted
-              hospitality.
+              <strong>{hotel.seo.synonyms[4]}</strong> are common needs for
+              Hyderabad guests. {hotel.name} supports these needs with practical
+              amenities, clean rooms, responsive assistance and convenient
+              access to nearby locations.
             </p>
-
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 className="text-xl font-semibold text-slate-900">
-                Long Tail Searches This Hotel Supports
-              </h3>
-
-              <ul className="mt-5 space-y-3 text-slate-700">
-                {hotel.seo.longTailKeywords.map((keyword) => (
-                  <li key={keyword}>
-                    ✓ <strong>{keyword}</strong>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
             <ul className="mt-8 space-y-3 text-slate-700">
               <li>✓ Comfortable and well-maintained rooms</li>
@@ -218,7 +185,29 @@ export default async function HotelPage({ params }: Props) {
               <li>✓ Essential amenities for a comfortable stay</li>
             </ul>
 
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+              <h2 className="text-2xl font-semibold text-slate-900">
+                Nearby Locations and Landmarks
+              </h2>
+
+              <p className="mt-4 leading-8 text-slate-600">
+                {hotel.name} is useful for guests looking for accommodation near
+                these important Hyderabad locations:
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-3">
+                {hotel.seo.nearbyLandmarks.map((landmark) => (
+                  <span
+                    key={landmark}
+                    className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-800"
+                  >
+                    <strong>{landmark}</strong>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className="text-xl font-semibold text-slate-900">
                 Useful Links for Guests
               </h3>
@@ -300,35 +289,16 @@ export default async function HotelPage({ params }: Props) {
               </h2>
 
               <div className="mt-6 space-y-6">
-                <div>
-                  <h3 className="font-semibold text-slate-900">
-                    Is {hotel.name} suitable for direct booking?
-                  </h3>
-                  <p className="mt-2 leading-7 text-slate-600">
-                    Yes. {hotel.name} supports direct booking through phone and
-                    WhatsApp for room availability and guest support.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-slate-900">
-                    Where is {hotel.name} located?
-                  </h3>
-                  <p className="mt-2 leading-7 text-slate-600">
-                    {hotel.name} is located in {hotel.location}, Telangana,
-                    India.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-slate-900">
-                    What amenities are available at {hotel.name}?
-                  </h3>
-                  <p className="mt-2 leading-7 text-slate-600">
-                    {hotel.name} offers practical amenities including{" "}
-                    <strong>{hotel.amenities.join(", ")}</strong>.
-                  </p>
-                </div>
+                {hotel.seo.faqs.map((faq) => (
+                  <div key={faq.question}>
+                    <h3 className="font-semibold text-slate-900">
+                      {faq.question}
+                    </h3>
+                    <p className="mt-2 leading-7 text-slate-600">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -344,11 +314,13 @@ export default async function HotelPage({ params }: Props) {
 
             <div className="mt-6 rounded-xl bg-slate-50 p-5">
               <p className="text-sm text-slate-500">Phone</p>
+
               <p className="mt-1 text-xl font-semibold text-slate-900">
                 {hotel.phone}
               </p>
 
               <p className="mt-4 text-sm text-slate-500">Email</p>
+
               <p className="mt-1 break-all text-sm font-medium text-slate-900">
                 {hotel.email}
               </p>
