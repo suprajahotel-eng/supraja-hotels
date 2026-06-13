@@ -13,16 +13,14 @@ export default function Footer() {
             </h2>
 
             <p className="mt-5 text-sm leading-7 text-slate-300">
-              Comfortable stays, prime locations and trusted hospitality
-              across Hyderabad. Experience clean rooms, convenient access
-              and direct booking support at our hotels.
+              Comfortable stays, prime locations and trusted hospitality across
+              Hyderabad. Stay near Hitech City, Madhapur, Chandanagar, BHEL,
+              Miyapur and nearby Hyderabad locations with direct booking support.
             </p>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold">
-              Quick Links
-            </h3>
+            <h3 className="text-lg font-semibold">Quick Links</h3>
 
             <div className="mt-5 space-y-3 text-sm text-slate-300">
               <Link href="/" className="block hover:text-amber-400">
@@ -34,7 +32,7 @@ export default function Footer() {
               </Link>
 
               <Link href="/hotels" className="block hover:text-amber-400">
-                Hotels
+                Hotels in Hyderabad
               </Link>
 
               <Link href="/gallery" className="block hover:text-amber-400">
@@ -52,9 +50,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold">
-              Our Hotels
-            </h3>
+            <h3 className="text-lg font-semibold">Our Hotels</h3>
 
             <div className="mt-5 space-y-4 text-sm text-slate-300">
               <div>
@@ -66,12 +62,22 @@ export default function Footer() {
                 </Link>
 
                 <p className="mt-1 text-xs text-slate-400">
-                  9550776161
+                  Madhapur, Hitech City, Kondapur, Gachibowli
                 </p>
 
-                <p className="text-xs text-slate-400 break-all">
+                <a
+                  href="tel:+919550776161"
+                  className="mt-1 block text-xs text-slate-400 hover:text-amber-400"
+                >
+                  9550776161
+                </a>
+
+                <a
+                  href="mailto:suprajacyberviewhotel@gmail.com"
+                  className="block break-all text-xs text-slate-400 hover:text-amber-400"
+                >
                   suprajacyberviewhotel@gmail.com
-                </p>
+                </a>
               </div>
 
               <div>
@@ -83,12 +89,22 @@ export default function Footer() {
                 </Link>
 
                 <p className="mt-1 text-xs text-slate-400">
-                  9346316161
+                  Chandanagar, Gangaram, BHEL, Miyapur
                 </p>
 
-                <p className="text-xs text-slate-400 break-all">
+                <a
+                  href="tel:+919346316161"
+                  className="mt-1 block text-xs text-slate-400 hover:text-amber-400"
+                >
+                  9346316161
+                </a>
+
+                <a
+                  href="mailto:residency.suprajahotels@gmail.com"
+                  className="block break-all text-xs text-slate-400 hover:text-amber-400"
+                >
                   residency.suprajahotels@gmail.com
-                </p>
+                </a>
               </div>
 
               <div>
@@ -100,31 +116,39 @@ export default function Footer() {
                 </Link>
 
                 <p className="mt-1 text-xs text-slate-400">
-                  9348446161
+                  Chandanagar, BHEL, Serilingampally, Nallagandla
                 </p>
 
-                <p className="text-xs text-slate-400 break-all">
+                <a
+                  href="tel:+919348446161"
+                  className="mt-1 block text-xs text-slate-400 hover:text-amber-400"
+                >
+                  9348446161
+                </a>
+
+                <a
+                  href="mailto:lodge.suprajahotels@gmail.com"
+                  className="block break-all text-xs text-slate-400 hover:text-amber-400"
+                >
                   lodge.suprajahotels@gmail.com
-                </p>
+                </a>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold">
-              Direct Booking
-            </h3>
+            <h3 className="text-lg font-semibold">Direct Booking</h3>
 
-            <p className="mt-5 text-sm text-slate-300">
-              Contact us directly for room availability, best rates and
-              booking assistance.
+            <p className="mt-5 text-sm leading-7 text-slate-300">
+              Contact Supraja Hotels directly for room availability, best
+              suitable property and booking assistance in Hyderabad.
             </p>
 
             <a
-              href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room"
+              href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room%20at%20Supraja%20Hotels"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-block rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
+              className="mt-5 inline-block rounded-full bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
             >
               Book on WhatsApp
             </a>
@@ -142,10 +166,7 @@ export default function Footer() {
             </p>
 
             <div className="flex flex-wrap gap-6 text-sm text-slate-400">
-              <Link
-                href="/privacy-policy"
-                className="hover:text-amber-400"
-              >
+              <Link href="/privacy-policy" className="hover:text-amber-400">
                 Privacy Policy
               </Link>
 
@@ -156,17 +177,11 @@ export default function Footer() {
                 Terms & Conditions
               </Link>
 
-              <Link
-                href="/refund-policy"
-                className="hover:text-amber-400"
-              >
+              <Link href="/refund-policy" className="hover:text-amber-400">
                 Refund Policy
               </Link>
 
-              <Link
-                href="/contact"
-                className="hover:text-amber-400"
-              >
+              <Link href="/contact" className="hover:text-amber-400">
                 Contact
               </Link>
             </div>
