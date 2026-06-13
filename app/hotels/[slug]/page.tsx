@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -17,7 +18,6 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
   const { slug } = await params;
-
   const hotel = hotels.find((item) => item.slug === slug);
 
   if (!hotel) {
@@ -29,16 +29,13 @@ export async function generateMetadata({
   return {
     title: hotel.seo.metaTitle,
     description: hotel.seo.metaDescription,
-
     keywords: hotel.seo.tags,
-
     openGraph: {
       title: hotel.seo.ogTitle,
       description: hotel.seo.ogDescription,
       images: [hotel.seo.ogImage],
       type: "website",
     },
-
     twitter: {
       card: "summary_large_image",
       title: hotel.seo.ogTitle,
@@ -50,7 +47,6 @@ export async function generateMetadata({
 
 export default async function HotelPage({ params }: Props) {
   const { slug } = await params;
-
   const hotel = hotels.find((item) => item.slug === slug);
 
   if (!hotel) {
@@ -62,13 +58,15 @@ export default async function HotelPage({ params }: Props) {
     "@type": "Hotel",
     name: hotel.name,
     description: hotel.description,
-    telephone: hotel.phone,
+    telephone: `+91-${hotel.phone}`,
+    email: hotel.email,
+    image: `https://suprajahotels.com${hotel.images.hero}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: hotel.location,
-      addressCountry: "India",
+      addressRegion: "Telangana",
+      addressCountry: "IN",
     },
-    image: hotel.images.hero,
   };
 
   return (
@@ -87,10 +85,12 @@ export default async function HotelPage({ params }: Props) {
           </p>
 
           <h1 className="mt-3 text-4xl font-semibold text-slate-900 md:text-5xl">
-            {hotel.name}
+            {hotel.name} | {hotel.seo.focusKeyword}
           </h1>
 
           <p className="mt-4 max-w-3xl leading-7 text-slate-600">
+            {hotel.seo.focusKeyword} offering comfortable rooms, direct booking
+            support and convenient access to major locations in Hyderabad.{" "}
             {hotel.description}
           </p>
 
@@ -108,11 +108,86 @@ export default async function HotelPage({ params }: Props) {
         <div className="container-custom grid gap-10 lg:grid-cols-[65%_35%]">
           <div>
             <h2 className="text-3xl font-semibold text-slate-900">
-              About {hotel.name}
+              {hotel.seo.focusKeyword}
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              {hotel.description}
+              {hotel.seo.focusKeyword} is a preferred choice for travellers
+              looking for comfortable accommodation, convenient access and
+              direct booking support in Hyderabad. {hotel.name} offers clean
+              rooms, practical amenities and a welcoming environment for
+              business guests, families and individual visitors.
+            </p>
+
+            <p className="mt-4 leading-8 text-slate-600">
+              Guests choosing {hotel.name} benefit from excellent connectivity,
+              reliable service and a comfortable stay experience. Whether you
+              are visiting for work, family events or a short city trip, the
+              hotel provides everything needed for a pleasant stay.
+            </p>
+
+            <h3 className="mt-10 text-2xl font-semibold text-slate-900">
+              Why Choose {hotel.seo.focusKeyword}
+            </h3>
+
+            <p className="mt-4 leading-8 text-slate-600">
+              {hotel.seo.synonyms[0]}, {hotel.seo.synonyms[1]},{" "}
+              {hotel.seo.synonyms[2]}, {hotel.seo.synonyms[3]} and{" "}
+              {hotel.seo.synonyms[4]} are some of the reasons guests choose{" "}
+              {hotel.name}. The property combines affordability, convenience and
+              trusted hospitality while maintaining easy access to important
+              destinations across Hyderabad.
+            </p>
+
+            <ul className="mt-6 space-y-3 text-slate-700">
+              <li>✓ Comfortable and well-maintained rooms</li>
+              <li>✓ Direct booking support through phone and WhatsApp</li>
+              <li>✓ Convenient location with easy connectivity</li>
+              <li>✓ Family-friendly and business-friendly environment</li>
+              <li>✓ Essential amenities for a comfortable stay</li>
+            </ul>
+
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-xl font-semibold text-slate-900">
+                Useful Links for Guests
+              </h3>
+
+              <div className="mt-4 flex flex-wrap gap-4 text-sm">
+                <Link href="/hotels" className="text-blue-700 hover:underline">
+                  Explore all Supraja Hotels
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="text-blue-700 hover:underline"
+                >
+                  Contact our booking team
+                </Link>
+
+                <a
+                  href="https://www.telanganatourism.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 hover:underline"
+                >
+                  Telangana Tourism
+                </a>
+
+                <a
+                  href="https://tourism.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 hover:underline"
+                >
+                  India Tourism
+                </a>
+              </div>
+            </div>
+
+            <p className="mt-8 leading-8 text-slate-600">
+              If you are searching for a reliable {hotel.seo.focusKeyword},{" "}
+              {hotel.name} offers comfortable accommodation, quality service and
+              a convenient location for your next visit to Hyderabad.
             </p>
 
             <h2 className="mt-10 text-3xl font-semibold text-slate-900">
@@ -159,9 +234,13 @@ export default async function HotelPage({ params }: Props) {
 
             <div className="mt-6 rounded-xl bg-slate-50 p-5">
               <p className="text-sm text-slate-500">Phone</p>
-
               <p className="mt-1 text-xl font-semibold text-slate-900">
                 {hotel.phone}
+              </p>
+
+              <p className="mt-4 text-sm text-slate-500">Email</p>
+              <p className="mt-1 break-all text-sm font-medium text-slate-900">
+                {hotel.email}
               </p>
             </div>
 
@@ -178,7 +257,7 @@ export default async function HotelPage({ params }: Props) {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 block rounded-full bg-amber-500 px-6 py-3 text-center text-sm font-semibold text-slate-950"
+              className="mt-3 block rounded-full bg-green-600 px-6 py-3 text-center text-sm font-semibold text-white"
             >
               Book on WhatsApp
             </a>
