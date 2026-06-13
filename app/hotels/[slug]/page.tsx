@@ -23,6 +23,7 @@ export async function generateMetadata({
   if (!hotel) {
     return {
       title: "Hotel Not Found",
+      description: "The requested hotel page could not be found.",
     };
   }
 
@@ -33,7 +34,14 @@ export async function generateMetadata({
     openGraph: {
       title: hotel.seo.ogTitle,
       description: hotel.seo.ogDescription,
-      images: [hotel.seo.ogImage],
+      images: [
+        {
+          url: hotel.seo.ogImage,
+          width: 1200,
+          height: 630,
+          alt: hotel.seo.featuredImageAlt,
+        },
+      ],
       type: "website",
     },
     twitter: {
@@ -57,16 +65,55 @@ export default async function HotelPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Hotel",
     name: hotel.name,
-    description: hotel.description,
+    description: hotel.seo.metaDescription,
     telephone: `+91-${hotel.phone}`,
     email: hotel.email,
     image: `https://suprajahotels.com${hotel.images.hero}`,
+    url: `https://suprajahotels.com/hotels/${hotel.slug}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: hotel.location,
       addressRegion: "Telangana",
       addressCountry: "IN",
     },
+    amenityFeature: hotel.amenities.map((amenity) => ({
+      "@type": "LocationFeatureSpecification",
+      name: amenity,
+      value: true,
+    })),
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Is ${hotel.name} suitable for direct booking?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes. ${hotel.name} supports direct booking through phone and WhatsApp for room availability and guest support.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Where is ${hotel.name} located?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${hotel.name} is located in ${hotel.location}, Telangana, India.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Does ${hotel.name} offer essential amenities?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${hotel.name} offers practical amenities such as ${hotel.amenities.join(
+            ", "
+          )}.`,
+        },
+      },
+    ],
   };
 
   return (
@@ -78,6 +125,13 @@ export default async function HotelPage({ params }: Props) {
         }}
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+
       <section className="bg-white px-4 py-12">
         <div className="container-custom">
           <p className="text-sm font-semibold text-slate-500">
@@ -85,13 +139,13 @@ export default async function HotelPage({ params }: Props) {
           </p>
 
           <h1 className="mt-3 text-4xl font-semibold text-slate-900 md:text-5xl">
-            {hotel.name} | {hotel.seo.focusKeyword}
+            {hotel.name} | <strong>{hotel.seo.focusKeyword}</strong>
           </h1>
 
-          <p className="mt-4 max-w-3xl leading-7 text-slate-600">
-            {hotel.seo.focusKeyword} offering comfortable rooms, direct booking
-            support and convenient access to major locations in Hyderabad.{" "}
-            {hotel.description}
+          <p className="mt-4 max-w-4xl leading-8 text-slate-600">
+            <strong>{hotel.seo.focusKeyword}</strong> offering comfortable
+            rooms, direct booking support and convenient access to important
+            Hyderabad locations. {hotel.description}
           </p>
 
           <div className="mt-8">
@@ -108,38 +162,55 @@ export default async function HotelPage({ params }: Props) {
         <div className="container-custom grid gap-10 lg:grid-cols-[65%_35%]">
           <div>
             <h2 className="text-3xl font-semibold text-slate-900">
-              {hotel.seo.focusKeyword}
+              <strong>{hotel.seo.focusKeyword}</strong> for Comfortable Stays
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              {hotel.seo.focusKeyword} is a preferred choice for travellers
-              looking for comfortable accommodation, convenient access and
-              direct booking support in Hyderabad. {hotel.name} offers clean
-              rooms, practical amenities and a welcoming environment for
-              business guests, families and individual visitors.
+              <strong>{hotel.seo.focusKeyword}</strong> is a practical choice
+              for guests looking for clean rooms, easy access, helpful service
+              and direct booking convenience. {hotel.name} is designed for
+              business guests, families, visitors and travelers who want a
+              dependable stay in Hyderabad.
             </p>
 
             <p className="mt-4 leading-8 text-slate-600">
-              Guests choosing {hotel.name} benefit from excellent connectivity,
-              reliable service and a comfortable stay experience. Whether you
-              are visiting for work, family events or a short city trip, the
-              hotel provides everything needed for a pleasant stay.
+              Guests choosing {hotel.name} can expect a stay experience focused
+              on comfort, location convenience and responsive guest support.
+              Whether you are visiting Hyderabad for work, family needs,
+              medical appointments, events or a short city stay, the hotel
+              provides essential amenities and simple booking assistance.
             </p>
 
             <h3 className="mt-10 text-2xl font-semibold text-slate-900">
-              Why Choose {hotel.seo.focusKeyword}
+              Why Choose <strong>{hotel.seo.focusKeyword}</strong>
             </h3>
 
             <p className="mt-4 leading-8 text-slate-600">
-              {hotel.seo.synonyms[0]}, {hotel.seo.synonyms[1]},{" "}
-              {hotel.seo.synonyms[2]}, {hotel.seo.synonyms[3]} and{" "}
-              {hotel.seo.synonyms[4]} are some of the reasons guests choose{" "}
-              {hotel.name}. The property combines affordability, convenience and
-              trusted hospitality while maintaining easy access to important
-              destinations across Hyderabad.
+              <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
+              <strong>{hotel.seo.synonyms[1]}</strong>,{" "}
+              <strong>{hotel.seo.synonyms[2]}</strong>,{" "}
+              <strong>{hotel.seo.synonyms[3]}</strong> and{" "}
+              <strong>{hotel.seo.synonyms[4]}</strong> are important search
+              needs for many travelers. {hotel.name} answers these needs with a
+              balance of affordability, comfort, connectivity and trusted
+              hospitality.
             </p>
 
-            <ul className="mt-6 space-y-3 text-slate-700">
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-xl font-semibold text-slate-900">
+                Long Tail Searches This Hotel Supports
+              </h3>
+
+              <ul className="mt-5 space-y-3 text-slate-700">
+                {hotel.seo.longTailKeywords.map((keyword) => (
+                  <li key={keyword}>
+                    ✓ <strong>{keyword}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <ul className="mt-8 space-y-3 text-slate-700">
               <li>✓ Comfortable and well-maintained rooms</li>
               <li>✓ Direct booking support through phone and WhatsApp</li>
               <li>✓ Convenient location with easy connectivity</li>
@@ -185,13 +256,14 @@ export default async function HotelPage({ params }: Props) {
             </div>
 
             <p className="mt-8 leading-8 text-slate-600">
-              If you are searching for a reliable {hotel.seo.focusKeyword},{" "}
-              {hotel.name} offers comfortable accommodation, quality service and
-              a convenient location for your next visit to Hyderabad.
+              For guests searching for a reliable{" "}
+              <strong>{hotel.seo.focusKeyword}</strong>, {hotel.name} offers
+              comfortable accommodation, helpful service, direct booking support
+              and a convenient location for the next Hyderabad visit.
             </p>
 
             <h2 className="mt-10 text-3xl font-semibold text-slate-900">
-              Amenities
+              Amenities at {hotel.name}
             </h2>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -208,7 +280,7 @@ export default async function HotelPage({ params }: Props) {
                     {amenityData?.icon ? (
                       <Image
                         src={amenityData.icon}
-                        alt={amenity}
+                        alt={`${amenity} at ${hotel.name}`}
                         width={34}
                         height={34}
                       />
@@ -220,6 +292,44 @@ export default async function HotelPage({ params }: Props) {
                   </div>
                 );
               })}
+            </div>
+
+            <div className="mt-10 rounded-2xl bg-white p-6">
+              <h2 className="text-2xl font-semibold text-slate-900">
+                Frequently Asked Questions
+              </h2>
+
+              <div className="mt-6 space-y-6">
+                <div>
+                  <h3 className="font-semibold text-slate-900">
+                    Is {hotel.name} suitable for direct booking?
+                  </h3>
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Yes. {hotel.name} supports direct booking through phone and
+                    WhatsApp for room availability and guest support.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-slate-900">
+                    Where is {hotel.name} located?
+                  </h3>
+                  <p className="mt-2 leading-7 text-slate-600">
+                    {hotel.name} is located in {hotel.location}, Telangana,
+                    India.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-slate-900">
+                    What amenities are available at {hotel.name}?
+                  </h3>
+                  <p className="mt-2 leading-7 text-slate-600">
+                    {hotel.name} offers practical amenities including{" "}
+                    <strong>{hotel.amenities.join(", ")}</strong>.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

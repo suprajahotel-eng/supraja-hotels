@@ -22,6 +22,13 @@ export const hotels = [
         "Hotel near Cyber Towers",
         "Accommodation in Madhapur",
       ],
+      longTailKeywords: [
+        "hotel near Hitech City Hyderabad for business travelers",
+        "comfortable hotel in Madhapur with direct booking",
+        "rooms near Cyber Towers Madhapur Hyderabad",
+        "hotel near Madhapur metro and business district",
+        "family friendly hotel in Madhapur Hyderabad",
+      ],
       tags: [
         "Hotel in Madhapur Hyderabad",
         "Hotel Supraja Cyber View",
@@ -86,6 +93,13 @@ export const hotels = [
         "Chandanagar hotel stay",
         "Accommodation in Chandanagar",
         "Hotel near Lingampally",
+      ],
+      longTailKeywords: [
+        "comfortable hotel in Chandanagar Hyderabad for families",
+        "hotel near Lingampally and Chandanagar Hyderabad",
+        "family friendly hotel in Chandanagar with direct booking",
+        "rooms in Chandanagar Hyderabad for short stay",
+        "hotel in Chandanagar Hyderabad near main road access",
       ],
       tags: [
         "Hotel in Chandanagar Hyderabad",
@@ -152,6 +166,13 @@ export const hotels = [
         "Economy hotel in Hyderabad",
         "Chandanagar lodge rooms",
       ],
+      longTailKeywords: [
+        "budget hotel in Chandanagar with clean rooms",
+        "affordable rooms in Chandanagar Hyderabad",
+        "low price hotel in Chandanagar for short stay",
+        "economy hotel in Hyderabad with direct booking",
+        "budget lodge rooms near Chandanagar Hyderabad",
+      ],
       tags: [
         "Budget Hotel in Chandanagar",
         "Hotel Supraja Lodge",
@@ -164,8 +185,7 @@ export const hotels = [
         "Supraja Hotels",
         "Hotels in Hyderabad",
       ],
-      featuredImageAlt:
-        "Budget Hotel in Chandanagar at Hotel Supraja Lodge",
+      featuredImageAlt: "Budget Hotel in Chandanagar at Hotel Supraja Lodge",
       ogTitle: "Hotel Supraja Lodge | Budget Hotel in Chandanagar",
       ogDescription:
         "Book Hotel Supraja Lodge for affordable rooms, convenient access and direct booking support in Chandanagar.",
