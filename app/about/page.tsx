@@ -3,47 +3,77 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Supraja Hotels | Trusted Hospitality in Hyderabad",
+  title: "Hotels in Hyderabad | About Supraja Hotels and Hospitality",
   description:
-    "Supraja Hotels offers comfortable stays, prime locations, direct hotel booking and trusted hospitality across Hyderabad.",
+    "Hotels in Hyderabad by Supraja Hotels offering comfortable rooms, direct booking support and convenient locations in Madhapur, Hitech City and Chandanagar.",
   keywords: [
+    "Hotels in Hyderabad",
+    "Hotel in Madhapur Hyderabad",
+    "Hotel in Chandanagar Hyderabad",
+    "Hotels near Hitech City",
+    "Direct hotel booking Hyderabad",
+    "Budget hotel in Chandanagar",
+    "Family hotel in Hyderabad",
+    "Business hotel in Hyderabad",
     "Supraja Hotels",
-    "Hyderabad hotels",
-    "trusted hotel group",
-    "comfortable accommodation in Hyderabad",
-    "direct hotel booking",
-    "hospitality brand in Hyderabad",
-    "Hotel Supraja Cyber View",
-    "Hotel Supraja Residency",
-    "Hotel Supraja Lodge",
-    "hotels in Hyderabad",
+    "Hyderabad accommodation",
   ],
   openGraph: {
-    title: "Supraja Hotels | Comfortable Stays in Hyderabad",
+    title: "Hotels in Hyderabad | About Supraja Hotels",
     description:
-      "Discover Supraja Hotels, a trusted hospitality brand offering clean rooms, prime locations and direct booking support in Hyderabad.",
+      "Discover Supraja Hotels, a trusted hospitality brand offering clean rooms, direct booking support and convenient locations across Hyderabad.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Supraja Hotels trusted hospitality in Hyderabad",
+        alt: "Hotels in Hyderabad by Supraja Hotels",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Supraja Hotels | Trusted Hospitality in Hyderabad",
+    title: "Hotels in Hyderabad | Supraja Hotels",
     description:
-      "Comfortable stays, clean rooms and direct booking support across Supraja Hotels in Hyderabad.",
+      "Comfortable rooms, trusted hospitality and direct booking support across Hyderabad.",
     images: ["/og-image.jpg"],
   },
+};
+
+const locations = [
+  "Hitech City",
+  "Madhapur",
+  "Kondapur",
+  "Gachibowli",
+  "Chandanagar",
+  "Gangaram",
+  "BHEL",
+  "Serilingampally",
+  "Nallagandla",
+  "Miyapur",
+];
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Supraja Hotels",
+  url: "https://suprajahotels.com/about",
+  description:
+    "Supraja Hotels offers hotels in Hyderabad with comfortable rooms, direct booking support and convenient locations in Madhapur, Hitech City and Chandanagar.",
+  areaServed: locations,
 };
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-slate-900 px-4 py-20 text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutSchema),
+        }}
+      />
+
+      <section className="bg-slate-950 px-4 py-20 text-white">
         <div className="container-custom grid gap-10 lg:grid-cols-[55%_45%] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">
@@ -51,27 +81,29 @@ export default function AboutPage() {
             </p>
 
             <h1 className="mt-4 text-4xl font-semibold md:text-5xl">
-              About Supraja Hotels
+              Hotels in Hyderabad by Supraja Hotels
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Supraja Hotels is a trusted hospitality brand in Hyderabad,
-              offering comfortable rooms, prime locations, direct hotel booking
-              support and reliable guest service for business travelers,
-              families and visitors.
+            <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-300">
+              <strong>Hotels in Hyderabad</strong> by Supraja Hotels are built
+              around clean rooms, convenient locations, direct hotel booking and
+              trusted hospitality. Our properties serve guests near{" "}
+              <strong>Hitech City</strong>, <strong>Madhapur</strong>,{" "}
+              <strong>Chandanagar</strong>, <strong>BHEL</strong> and{" "}
+              <strong>Miyapur</strong>.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/hotels"
-                className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-950"
+                className="rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
               >
                 Explore our hotels
               </Link>
 
               <Link
                 href="/contact"
-                className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white"
+                className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-950"
               >
                 Contact booking team
               </Link>
@@ -81,10 +113,11 @@ export default function AboutPage() {
           <div className="relative h-[320px] overflow-hidden rounded-3xl">
             <Image
               src="/images/homepage/hero.webp"
-              alt="Supraja Hotels trusted hospitality in Hyderabad"
+              alt="Hotels in Hyderabad by Supraja Hotels"
               fill
               priority
               className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 45vw"
             />
           </div>
         </div>
@@ -98,25 +131,32 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Supraja Hotels was built with a clear purpose: to provide clean,
-              comfortable and value-focused accommodation in convenient
-              Hyderabad locations. Our properties are designed for guests who
-              want practical amenities, easy access and friendly support without
-              unnecessary complications.
+              Supraja Hotels was built with a clear purpose: to provide{" "}
+              <strong>comfortable accommodation in Hyderabad</strong> with
+              practical amenities, helpful service and easy access to important
+              locations. Guests choose us when they need dependable stays for
+              work, family visits, medical needs, short trips and city travel.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              As Hyderabad hotels continue to serve business, family and travel
-              guests, Supraja Hotels focuses on dependable hospitality. From
-              Madhapur to Chandanagar, our hotels support guests who need
-              comfort, connectivity and direct booking assistance.
+              Our properties support different travel needs. Hotel Supraja Cyber
+              View is suitable for guests looking for a{" "}
+              <strong>Hotel in Madhapur Hyderabad</strong>,{" "}
+              <strong>Hotels near Hitech City</strong>, or accommodation around{" "}
+              <strong>Kondapur</strong> and <strong>Gachibowli</strong>. Hotel
+              Supraja Residency and Hotel Supraja Lodge are ideal for guests
+              searching for a <strong>Hotel in Chandanagar Hyderabad</strong>,{" "}
+              <strong>Budget hotel in Chandanagar</strong>, and stays near{" "}
+              <strong>Gangaram</strong>, <strong>BHEL</strong>,{" "}
+              <strong>Serilingampally</strong>, <strong>Nallagandla</strong> and{" "}
+              <strong>Miyapur</strong>.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Guests choose us for comfortable accommodation in Hyderabad, quick
-              room availability support, clean rooms and trusted service. Whether
-              the visit is for work, family events, medical needs or short city
-              travel, our team aims to make every stay simple and pleasant.
+              As a local hospitality brand, Supraja Hotels focuses on what
+              guests need most: clean rooms, direct booking support, location
+              convenience, practical amenities and responsive assistance before
+              and during the stay.
             </p>
           </div>
 
@@ -126,17 +166,19 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Our mission is to deliver reliable hospitality with clean rooms,
-              responsive service and fair value. Supraja Hotels works to combine
-              affordability, comfort and convenience for every guest.
+              Our mission is to deliver reliable hospitality for guests
+              searching for <strong>Direct hotel booking Hyderabad</strong>,{" "}
+              <strong>Family hotel in Hyderabad</strong> and{" "}
+              <strong>Business hotel in Hyderabad</strong>. We aim to keep the
+              booking journey simple and the stay experience comfortable.
             </p>
 
             <ul className="mt-6 space-y-3 text-slate-700">
               <li>✓ Clean and well-maintained rooms</li>
-              <li>✓ Prime hotel locations in Hyderabad</li>
               <li>✓ Direct hotel booking through phone and WhatsApp</li>
-              <li>✓ Guest support for families and business travelers</li>
-              <li>✓ Practical amenities for comfortable stays</li>
+              <li>✓ Hotels near Hitech City, Madhapur, Kondapur and Gachibowli</li>
+              <li>✓ Hotels in Chandanagar, Gangaram, BHEL and Miyapur</li>
+              <li>✓ Practical amenities for business and family guests</li>
             </ul>
 
             <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
@@ -145,7 +187,7 @@ export default function AboutPage() {
               </h3>
 
               <p className="mt-4 leading-8 text-slate-600">
-                We focus on honest service, comfortable rooms and practical
+                We focus on honest service, clean rooms and practical
                 hospitality. Our goal is to make every guest feel supported from
                 enquiry to checkout.
               </p>
@@ -161,16 +203,16 @@ export default function AboutPage() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-3xl text-center leading-8 text-slate-600">
-            Supraja Hotels is preferred by guests looking for a trusted hotel
-            group, easy connectivity, direct booking support and a dependable
-            hospitality brand in Hyderabad.
+            Supraja Hotels is preferred by guests looking for{" "}
+            <strong>Hotels in Hyderabad</strong>, easy connectivity, direct
+            booking support and a dependable local hospitality brand.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 title: "Prime Locations",
-                text: "Convenient access to Madhapur, Hitech City, Chandanagar and nearby business areas.",
+                text: "Convenient access to Hitech City, Madhapur, Chandanagar, BHEL, Miyapur and nearby Hyderabad areas.",
               },
               {
                 title: "Comfortable Rooms",
@@ -185,7 +227,10 @@ export default function AboutPage() {
                 text: "Guest-focused service across all Supraja hotel properties.",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white p-6 shadow-sm">
+              <div
+                key={item.title}
+                className="rounded-2xl bg-white p-6 shadow-sm"
+              >
                 <h3 className="font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
               </div>
@@ -197,6 +242,31 @@ export default function AboutPage() {
       <section className="bg-white px-4 py-20">
         <div className="container-custom">
           <h2 className="text-3xl font-semibold text-slate-900">
+            Locations We Serve in Hyderabad
+          </h2>
+
+          <p className="mt-5 max-w-4xl leading-8 text-slate-600">
+            Supraja Hotels serves guests looking for accommodation around major
+            Hyderabad business and residential areas. These location signals help
+            guests quickly choose the right property based on their travel plan.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {locations.map((location) => (
+              <span
+                key={location}
+                className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-800"
+              >
+                <strong>{location}</strong>
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 pb-20">
+        <div className="container-custom">
+          <h2 className="text-3xl font-semibold text-slate-900">
             Our Supraja Hotels Properties
           </h2>
 
@@ -205,9 +275,10 @@ export default function AboutPage() {
               <div className="relative h-56">
                 <Image
                   src="/images/cyber-view/hero.webp"
-                  alt="Hotel Supraja Cyber View by Supraja Hotels in Madhapur"
+                  alt="Hotel in Madhapur Hyderabad by Supraja Hotels"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -215,9 +286,10 @@ export default function AboutPage() {
                   Hotel Supraja Cyber View
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">
-                  Located near Hitech City and Madhapur, this property is ideal
-                  for corporate guests, city travelers and visitors who need
-                  convenient access to Hyderabad business areas.
+                  A preferred option for guests looking for{" "}
+                  <strong>Hotels near Hitech City</strong>,{" "}
+                  <strong>Hotel in Madhapur Hyderabad</strong>, and stays near{" "}
+                  <strong>Kondapur</strong> or <strong>Gachibowli</strong>.
                 </p>
                 <Link
                   href="/hotels/supraja-cyber-view"
@@ -232,9 +304,10 @@ export default function AboutPage() {
               <div className="relative h-56">
                 <Image
                   src="/images/residency/hero.webp"
-                  alt="Hotel Supraja Residency by Supraja Hotels in Chandanagar"
+                  alt="Hotel in Chandanagar Hyderabad by Supraja Hotels"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -242,9 +315,11 @@ export default function AboutPage() {
                   Hotel Supraja Residency
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">
-                  A comfortable stay option in Chandanagar for families,
-                  professionals and visitors looking for clean rooms and easy
-                  access to nearby areas.
+                  A comfortable stay option for guests searching for{" "}
+                  <strong>Hotel in Chandanagar Hyderabad</strong>,{" "}
+                  <strong>Family hotel in Hyderabad</strong>, and rooms near{" "}
+                  <strong>Gangaram</strong>, <strong>BHEL</strong> and{" "}
+                  <strong>Miyapur</strong>.
                 </p>
                 <Link
                   href="/hotels/supraja-residency"
@@ -259,9 +334,10 @@ export default function AboutPage() {
               <div className="relative h-56">
                 <Image
                   src="/images/lodge/hero.webp"
-                  alt="Hotel Supraja Lodge by Supraja Hotels in Chandanagar"
+                  alt="Budget hotel in Chandanagar by Supraja Hotels"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -269,9 +345,10 @@ export default function AboutPage() {
                   Hotel Supraja Lodge
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">
-                  Affordable accommodation in Chandanagar with practical
-                  amenities, direct booking support and convenient access to
-                  local business and residential areas.
+                  A practical choice for guests looking for{" "}
+                  <strong>Budget hotel in Chandanagar</strong>, affordable
+                  rooms, and direct booking support near <strong>BHEL</strong>,{" "}
+                  <strong>Serilingampally</strong> and <strong>Nallagandla</strong>.
                 </p>
                 <Link
                   href="/hotels/supraja-lodge"
@@ -319,17 +396,60 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-slate-900 px-4 py-16 text-center text-white">
+      <section className="bg-slate-50 px-4 py-20">
         <div className="container-custom">
-          <h2 className="text-3xl font-semibold">
-            Experience Comfortable Hospitality with Supraja Hotels
+          <h2 className="text-3xl font-semibold text-slate-900">
+            Frequently Asked Questions
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl leading-8 text-slate-300">
-            For guests searching for clean rooms, convenient locations and
-            direct hotel booking in Hyderabad, Supraja Hotels offers a trusted
-            stay experience supported by reliable service and guest-focused
-            hospitality.
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="font-semibold text-slate-900">
+                What hotels does Supraja Hotels operate?
+              </h3>
+              <p className="mt-3 leading-7 text-slate-600">
+                Supraja Hotels operates Hotel Supraja Cyber View, Hotel Supraja
+                Residency and Hotel Supraja Lodge in Hyderabad.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="font-semibold text-slate-900">
+                Which Supraja hotel is near Hitech City?
+              </h3>
+              <p className="mt-3 leading-7 text-slate-600">
+                Hotel Supraja Cyber View is suitable for guests looking for
+                hotels near Hitech City, Madhapur, Kondapur and Gachibowli.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="font-semibold text-slate-900">
+                Which Supraja hotels are in Chandanagar?
+              </h3>
+              <p className="mt-3 leading-7 text-slate-600">
+                Hotel Supraja Residency and Hotel Supraja Lodge are suitable for
+                guests looking for hotels in Chandanagar, Gangaram, BHEL,
+                Serilingampally, Nallagandla and Miyapur.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="font-semibold text-slate-900">
+                Can I directly book rooms at Supraja Hotels?
+              </h3>
+              <p className="mt-3 leading-7 text-slate-600">
+                Yes. Guests can directly call or WhatsApp Supraja Hotels for
+                room availability and booking assistance.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-10 leading-8 text-slate-600">
+            For guests searching for reliable <strong>Hotels in Hyderabad</strong>,
+            Supraja Hotels offers comfortable rooms, convenient locations and
+            direct booking support across Madhapur, Hitech City, Chandanagar,
+            BHEL and Miyapur.
           </p>
         </div>
       </section>
