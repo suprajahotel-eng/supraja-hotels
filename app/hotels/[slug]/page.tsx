@@ -347,16 +347,7 @@ export default async function HotelPage({ params }: Props) {
           </aside>
         </div>
       </section>
-      <HotelSchema
-  hotel={{
-    name: hotel.name,
-    description: hotel.description,
-    phone: hotel.phone,
-    address: hotel.address,
-    city: hotel.city,
-    image: hotel.images.hero,
-  }}
-/>
+  <HotelSchema hotel={hotel} />
       {hotel.mapEmbed ? (
         <HotelMap title={hotel.name} embedUrl={hotel.mapEmbed} />
       ) : null}
