@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 
 type HotelGalleryProps = {
   hotelName: string;

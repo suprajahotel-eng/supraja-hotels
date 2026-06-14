@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { MapPin, Star, ShieldCheck, Phone, MessageCircle } from "lucide-react";
 import { hotels } from "@/data/hotels";
@@ -187,13 +187,13 @@ export default function HomePage() {
                 className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl lg:grid-cols-[320px_1fr_220px]"
               >
                 <div className="relative h-64 bg-slate-100 lg:h-full">
-                  <Image
-                    src={hotel.images.hero}
-                    alt={hotel.seo.featuredImageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 320px"
-                  />
+                  <SmartImage
+  src={hotel.images.hero}
+  alt={hotel.name}
+  width={700}
+  height={500}
+  className="h-full w-full object-cover"
+/>
                 </div>
 
                 <div className="p-7">

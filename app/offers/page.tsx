@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import {
   BadgePercent,
@@ -191,13 +191,13 @@ export default function OffersPage() {
                 href={`/hotels/${hotel.slug}`}
                 className="group overflow-hidden rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <Image
-                  src={hotel.images.hero}
-                  alt={`${hotel.name} offer`}
-                  width={700}
-                  height={500}
-                  className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
-                />
+                <SmartImage
+  src={hotel.images.hero}
+  alt={hotel.name}
+  width={700}
+  height={500}
+  className="h-full w-full object-cover"
+/>
 
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-950">

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { Camera, Building2, MessageCircle, Phone } from "lucide-react";
 
