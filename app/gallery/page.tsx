@@ -1,4 +1,4 @@
-import SmartImage from "@/components/SmartImage";
+import Image, { type ImageProps } from "next/image";
 import Link from "next/link";
 import { Camera, Building2, MessageCircle, Phone } from "lucide-react";
 

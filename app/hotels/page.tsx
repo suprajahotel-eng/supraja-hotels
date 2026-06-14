@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SmartImage from "@/components/SmartImage";
+import Image, { type ImageProps } from "next/image";
 import Link from "next/link";
 import {
   MapPin,

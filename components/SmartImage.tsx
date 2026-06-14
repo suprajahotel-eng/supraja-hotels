@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/image";
 
 type SmartImageProps = ImageProps & {
   isHero?: boolean;
@@ -10,12 +10,12 @@ export default function SmartImage({
   ...props
 }: SmartImageProps) {
   return (
-    <SmartImage
+    <Image
       {...props}
       priority={isHero}
       loading={isHero ? undefined : "lazy"}
       sizes={
-        sizes ||
+        sizes ??
         (isHero
           ? "100vw"
           : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw")
