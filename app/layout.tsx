@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import OrganizationSchema from "@/components/schema/OrganizationSchema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -187,6 +188,7 @@ export default function RootLayout({
         <Footer />
 
         <FloatingCTA />
+        <OrganizationSchema />
       </body>
     </html>
   );

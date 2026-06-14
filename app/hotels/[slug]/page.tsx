@@ -7,6 +7,7 @@ import { amenities } from "@/data/amenities";
 import { hotels } from "@/data/hotels";
 import HotelGallery from "@/components/HotelGallery";
 import HotelMap from "@/components/HotelMap";
+import HotelSchema from "@/components/schema/HotelSchema";
 
 type Props = {
   params: Promise<{
@@ -96,7 +97,7 @@ export default async function HotelPage({ params }: Props) {
       },
     })),
   };
-
+<HotelSchema hotel={hotel} />
   return (
     <>
       <script
@@ -346,7 +347,16 @@ export default async function HotelPage({ params }: Props) {
           </aside>
         </div>
       </section>
-
+      <HotelSchema
+  hotel={{
+    name: hotel.name,
+    description: hotel.description,
+    phone: hotel.phone,
+    address: hotel.address,
+    city: hotel.city,
+    image: hotel.images.hero,
+  }}
+/>
       {hotel.mapEmbed ? (
         <HotelMap title={hotel.name} embedUrl={hotel.mapEmbed} />
       ) : null}

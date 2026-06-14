@@ -6,10 +6,45 @@ export const hotels = [
     phone: "9550776161",
     whatsapp: "9550776161",
     email: "suprajacyberviewhotel@gmail.com",
-    location: "Madhapur, Hyderabad",
+    location: "Madhapur, Hitech City, Hyderabad",
+    area: "Madhapur",
+    city: "Hyderabad",
+    state: "Telangana",
+    postalCode: "500081",
+    address:
+      "Plot No. 8, Rohini Layout, Opp. Shilpa Kalavedika, Madhapur, Hitech City, Serilingampally Mandal, Hyderabad, Telangana 500081",
     shortDescription: "Comfortable stay near Hitech City and Madhapur.",
     description:
-      "Hotel Supraja Cyber View offers comfortable rooms, direct booking support and easy access to Hitech City, Madhapur and Hyderabad's business district.",
+      "Hotel Supraja Cyber View offers comfortable rooms, direct booking support and easy access to Hitech City, Madhapur, Kondapur, Gachibowli and Hyderabad's business district.",
+    checkInTime: "12:00",
+    checkOutTime: "11:00",
+    priceRange: "₹₹",
+    geo: {
+      latitude: 17.45212880093779,
+      longitude: 78.37846297462835,
+    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1584470401276!2d78.37846297462835!3d17.45212880093779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93128214499d%3A0xa765183000594e85!2sHotel%20Supraja%20Cyber%20View%20Hitech%20City!5e0!3m2!1sen!2sin!4v1781237671284!5m2!1sen!2sin",
+    images: {
+      hero: "/images/cyber-view/hero.webp",
+      gallery: [
+        "/images/cyber-view/room-1.webp",
+        "/images/cyber-view/room-2.webp",
+        "/images/cyber-view/room-3.webp",
+        "/images/cyber-view/reception.webp",
+        "/images/cyber-view/exterior.webp",
+        "/images/cyber-view/washroom.webp",
+        "/images/cyber-view/kettle.webp",
+      ],
+    },
+    amenities: [
+      "Free WiFi",
+      "Air Conditioning",
+      "24x7 Reception",
+      "Daily Housekeeping",
+      "Parking",
+      "Family Rooms",
+    ],
     seo: {
       focusKeyword: "Hotel in Madhapur Hyderabad",
       metaTitle: "Hotel in Madhapur Hyderabad | Hotel Supraja Cyber View",
@@ -56,7 +91,8 @@ export const hotels = [
             "Yes. Hotel Supraja Cyber View is suitable for guests looking for a hotel near Hitech City, Madhapur and nearby business locations.",
         },
         {
-          question: "Is this hotel suitable for guests visiting Kondapur and Gachibowli?",
+          question:
+            "Is this hotel suitable for guests visiting Kondapur and Gachibowli?",
           answer:
             "Yes. The hotel provides convenient access to Kondapur, Gachibowli, Hitech City and nearby locations.",
         },
@@ -85,28 +121,6 @@ export const hotels = [
         "Book Hotel Supraja Cyber View for a comfortable stay near Hitech City, Madhapur, Kondapur and Gachibowli.",
       ogImage: "/images/cyber-view/hero.webp",
     },
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1584470401276!2d78.37846297462835!3d17.45212880093779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93128214499d%3A0xa765183000594e85!2sHotel%20Supraja%20Cyber%20View%20Hitech%20City!5e0!3m2!1sen!2sin!4v1781237671284!5m2!1sen!2sin",
-    images: {
-      hero: "/images/cyber-view/hero.webp",
-      gallery: [
-        "/images/cyber-view/room-1.webp",
-        "/images/cyber-view/room-2.webp",
-        "/images/cyber-view/room-3.webp",
-        "/images/cyber-view/reception.webp",
-        "/images/cyber-view/exterior.webp",
-        "/images/cyber-view/washroom.webp",
-        "/images/cyber-view/kettle.webp",
-      ],
-    },
-    amenities: [
-      "Free WiFi",
-      "Air Conditioning",
-      "24x7 Reception",
-      "Daily Housekeeping",
-      "Parking",
-      "Family Rooms",
-    ],
   },
   {
     id: 2,
@@ -116,9 +130,44 @@ export const hotels = [
     whatsapp: "9346316161",
     email: "residency.suprajahotels@gmail.com",
     location: "Chandanagar, Hyderabad",
+    area: "Chandanagar",
+    city: "Hyderabad",
+    state: "Telangana",
+    postalCode: "500050",
+    address:
+      "Plot No. 4-91, Above Parampara Sweets, Chandanagar, Hyderabad, Telangana 500050",
     shortDescription: "Trusted stay in Chandanagar.",
     description:
-      "Hotel Supraja Residency provides clean rooms, convenient access to business locations and direct booking assistance.",
+      "Hotel Supraja Residency provides clean rooms, convenient access to Chandanagar, Gangaram, BHEL, Serilingampally, Nallagandla and Miyapur with direct booking assistance.",
+    checkInTime: "12:00",
+    checkOutTime: "11:00",
+    priceRange: "₹₹",
+    geo: {
+      latitude: 17.494703099705735,
+      longitude: 78.32400007462928,
+    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.268262228298!2d78.32400007462928!3d17.494703099705735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9291f741f477%3A0x1c532426df884fee!2sSupraja%20Residency!5e0!3m2!1sen!2sin!4v1781237725573!5m2!1sen!2sin",
+    images: {
+      hero: "/images/residency/hero.webp",
+      gallery: [
+        "/images/residency/room-1.webp",
+        "/images/residency/room-2.webp",
+        "/images/residency/room-3.webp",
+        "/images/residency/reception.webp",
+        "/images/residency/exterior.webp",
+        "/images/residency/washroom.webp",
+        "/images/residency/kettle.webp",
+      ],
+    },
+    amenities: [
+      "Free WiFi",
+      "Air Conditioning",
+      "Parking",
+      "Room Service",
+      "24x7 Support",
+      "Family Friendly",
+    ],
     seo: {
       focusKeyword: "Hotel in Chandanagar Hyderabad",
       metaTitle: "Hotel in Chandanagar Hyderabad | Hotel Supraja Residency",
@@ -194,28 +243,6 @@ export const hotels = [
         "Book Hotel Supraja Residency in Chandanagar for clean rooms, direct booking support and convenient access to Gangaram, BHEL, Serilingampally, Nallagandla and Miyapur.",
       ogImage: "/images/residency/hero.webp",
     },
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.268262228298!2d78.32400007462928!3d17.494703099705735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9291f741f477%3A0x1c532426df884fee!2sSupraja%20Residency!5e0!3m2!1sen!2sin!4v1781237725573!5m2!1sen!2sin",
-    images: {
-      hero: "/images/residency/hero.webp",
-      gallery: [
-        "/images/residency/room-1.webp",
-        "/images/residency/room-2.webp",
-        "/images/residency/room-3.webp",
-        "/images/residency/reception.webp",
-        "/images/residency/exterior.webp",
-        "/images/residency/washroom.webp",
-        "/images/residency/kettle.webp",
-      ],
-    },
-    amenities: [
-      "Free WiFi",
-      "Air Conditioning",
-      "Parking",
-      "Room Service",
-      "24x7 Support",
-      "Family Friendly",
-    ],
   },
   {
     id: 3,
@@ -225,9 +252,44 @@ export const hotels = [
     whatsapp: "9348446161",
     email: "lodge.suprajahotels@gmail.com",
     location: "Chandanagar, Hyderabad",
+    area: "Chandanagar",
+    city: "Hyderabad",
+    state: "Telangana",
+    postalCode: "500050",
+    address:
+      "D.No. 2-57/1, Tudi Towers, Beside Bajaj Electronics, Chandanagar, Hyderabad, Telangana 500050",
     shortDescription: "Affordable stay with convenient access.",
     description:
-      "Hotel Supraja Lodge offers affordable accommodation, direct booking support and comfortable rooms for business and family travelers.",
+      "Hotel Supraja Lodge offers affordable accommodation, direct booking support and comfortable rooms for business and family travelers near Chandanagar, Gangaram, BHEL, Serilingampally and Miyapur.",
+    checkInTime: "12:00",
+    checkOutTime: "11:00",
+    priceRange: "₹",
+    geo: {
+      latitude: 17.495346900000005,
+      longitude: 78.31920789678956,
+    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3805.2547848988615!2d78.31920789678956!3d17.495346900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSupraja%20lodge!5e0!3m2!1sen!2sin!4v1781237773260!5m2!1sen!2sin",
+    images: {
+      hero: "/images/lodge/hero.webp",
+      gallery: [
+        "/images/lodge/room-1.webp",
+        "/images/lodge/room-2.webp",
+        "/images/lodge/room-3.webp",
+        "/images/lodge/reception.webp",
+        "/images/lodge/exterior.webp",
+        "/images/lodge/washroom.webp",
+        "/images/lodge/kettle.webp",
+      ],
+    },
+    amenities: [
+      "Free WiFi",
+      "Parking",
+      "Daily Housekeeping",
+      "24x7 Reception",
+      "Budget Friendly",
+      "Family Rooms",
+    ],
     seo: {
       focusKeyword: "Budget Hotel in Chandanagar",
       metaTitle: "Budget Hotel in Chandanagar | Hotel Supraja Lodge",
@@ -302,27 +364,5 @@ export const hotels = [
         "Book Hotel Supraja Lodge for affordable rooms, direct booking support and convenient access to Gangaram, BHEL, Serilingampally, Nallagandla and Miyapur.",
       ogImage: "/images/lodge/hero.webp",
     },
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3805.2547848988615!2d78.31920789678956!3d17.495346900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSupraja%20lodge!5e0!3m2!1sen!2sin!4v1781237773260!5m2!1sen!2sin",
-    images: {
-      hero: "/images/lodge/hero.webp",
-      gallery: [
-        "/images/lodge/room-1.webp",
-        "/images/lodge/room-2.webp",
-        "/images/lodge/room-3.webp",
-        "/images/lodge/reception.webp",
-        "/images/lodge/exterior.webp",
-        "/images/lodge/washroom.webp",
-        "/images/lodge/kettle.webp",
-      ],
-    },
-    amenities: [
-      "Free WiFi",
-      "Parking",
-      "Daily Housekeeping",
-      "24x7 Reception",
-      "Budget Friendly",
-      "Family Rooms",
-    ],
   },
 ];
