@@ -144,7 +144,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative h-[320px] overflow-hidden bg-slate-100 md:h-[620px]">
-            <Image
+            <SmartImage
               src="/images/homepage/hero.webp"
               alt="Hotels in Hyderabad by Supraja Hotels"
               fill

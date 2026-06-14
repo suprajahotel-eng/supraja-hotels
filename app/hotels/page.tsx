@@ -102,7 +102,7 @@ export default function HotelsPage() {
           </div>
 
           <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl lg:h-[480px]">
-            <Image
+            <SmartImage
               src="/images/homepage/hero.webp"
               alt="Hotels in Hyderabad by Supraja Hotels"
               fill

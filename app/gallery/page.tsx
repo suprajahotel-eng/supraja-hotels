@@ -72,7 +72,7 @@ export default function GalleryPage() {
                       index === 0 ? "sm:col-span-2 sm:row-span-2" : ""
                     }`}
                   >
-                    <Image
+                    <SmartImage
                       src={image}
                       alt={`${hotel.name} gallery image ${index + 1}`}
                       width={900}

@@ -267,7 +267,7 @@ export default async function HotelPage({ params }: Props) {
                     className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 text-slate-800"
                   >
                     {amenityData?.icon ? (
-                      <Image
+                      <SmartImage
                         src={amenityData.icon}
                         alt={`${amenity} at ${hotel.name}`}
                         width={34}

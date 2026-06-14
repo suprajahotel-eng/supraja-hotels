@@ -300,13 +300,12 @@ export default function AboutPage() {
 
             <div className="overflow-hidden rounded-2xl border border-slate-200">
               <div className="relative h-56">
-                <Image
-                  src="/images/residency/hero.webp"
-                  alt="Hotel in Chandanagar Hyderabad by Supraja Hotels"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
+                <SmartImage
+  src="/images/residency/hero.webp"
+  alt="Hotel in Chandanagar Hyderabad by Supraja Hotels"
+  fill
+  className="object-cover"
+/>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900">
@@ -330,7 +329,7 @@ export default function AboutPage() {
 
             <div className="overflow-hidden rounded-2xl border border-slate-200">
               <div className="relative h-56">
-                <Image
+                <SmartImage
                   src="/images/lodge/hero.webp"
                   alt="Budget hotel in Chandanagar by Supraja Hotels"
                   fill

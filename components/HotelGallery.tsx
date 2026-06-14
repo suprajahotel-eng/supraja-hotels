@@ -16,7 +16,7 @@ export default function HotelGallery({
   return (
     <div className="grid gap-4 md:grid-cols-[2fr_1fr]">
       <div className="relative h-[420px] overflow-hidden rounded-2xl bg-slate-100">
-        <Image
+        <SmartImage
           src={hero}
           alt={`${hotelName} main image`}
           fill
@@ -32,7 +32,7 @@ export default function HotelGallery({
             key={image}
             className="relative h-[202px] overflow-hidden rounded-2xl bg-slate-100"
           >
-            <Image
+            <SmartImage
               src={image}
               alt={`${hotelName} gallery image ${index + 1}`}
               fill

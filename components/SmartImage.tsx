@@ -10,7 +10,7 @@ export default function SmartImage({
   ...props
 }: SmartImageProps) {
   return (
-    <Image
+    <SmartImage
       {...props}
       priority={isHero}
       loading={isHero ? undefined : "lazy"}

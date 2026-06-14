@@ -97,7 +97,7 @@ export default function OffersPage() {
 
           <div className="relative">
             <div className="overflow-hidden rounded-[2rem] shadow-2xl">
-              <Image
+              <SmartImage
                 src={hotels[0].images.hero}
                 alt="Supraja Hotels offers in Hyderabad"
                 width={900}
@@ -142,7 +142,7 @@ export default function OffersPage() {
                 className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative h-64">
-                  <Image
+                  <SmartImage
                     src={image}
                     alt={`${offer.title} at Supraja Hotels`}
                     width={900}

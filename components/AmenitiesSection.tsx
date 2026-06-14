@@ -23,7 +23,7 @@ export default function AmenitiesSection() {
               key={item.title}
               className="group border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-              <Image
+              <SmartImage
                 src={item.icon}
                 alt={item.title}
                 width={48}
