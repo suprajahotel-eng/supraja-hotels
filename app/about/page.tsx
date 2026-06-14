@@ -272,13 +272,12 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-8 lg:grid-cols-3">
             <div className="overflow-hidden rounded-2xl border border-slate-200">
               <div className="relative h-56">
-                <Image
-                  src="/images/cyber-view/hero.webp"
-                  alt="Hotel in Madhapur Hyderabad by Supraja Hotels"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
+                <SmartImage
+  src="/images/cyber-view/hero.webp"
+  alt="Hotel in Madhapur Hyderabad by Supraja Hotels"
+  fill
+  className="object-cover"
+/>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900">
