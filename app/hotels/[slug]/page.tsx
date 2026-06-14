@@ -9,6 +9,7 @@ import HotelGallery from "@/components/HotelGallery";
 import HotelMap from "@/components/HotelMap";
 import HotelSchema from "@/components/schema/HotelSchema";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
+import FAQSchema from "@/components/schema/FAQSchema";
 
 type Props = {
   params: Promise<{
@@ -102,6 +103,7 @@ export default async function HotelPage({ params }: Props) {
   return (
     <>
 <HotelSchema hotel={hotel} />
+
 <BreadcrumbSchema
   items={[
     {
@@ -117,6 +119,15 @@ export default async function HotelPage({ params }: Props) {
       url: `https://suprajahotels.com/hotels/${hotel.slug}`,
     },
   ]}
+/>
+
+<FAQSchema
+  faqs={
+    hotel.seo?.faqs?.map((faq) => ({
+      question: faq.question,
+      answer: faq.answer,
+    })) || []
+  }
 />
       <script
         type="application/ld+json"
