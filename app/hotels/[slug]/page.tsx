@@ -99,6 +99,8 @@ export default async function HotelPage({ params }: Props) {
     })),
   };
   
+  return (
+    <>
 <HotelSchema hotel={hotel} />
 <BreadcrumbSchema
   items={[
@@ -116,8 +118,6 @@ export default async function HotelPage({ params }: Props) {
     },
   ]}
 />
-  return (
-    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
