@@ -11,6 +11,8 @@ import HotelSchema from "@/components/schema/HotelSchema";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 
+const siteUrl = "https://suprajahotels.com";
+
 type Props = {
   params: Promise<{
     slug: string;
@@ -25,33 +27,48 @@ export async function generateMetadata({
 
   if (!hotel) {
     return {
-      title: "Hotel Not Found",
+      title: "Hotel Not Found | Supraja Hotels",
       description: "The requested hotel page could not be found.",
     };
   }
 
+  const canonicalUrl = `${siteUrl}/hotels/${hotel.slug}`;
+  const ogImageUrl = `${siteUrl}${hotel.seo.ogImage}`;
+
   return {
     title: hotel.seo.metaTitle,
     description: hotel.seo.metaDescription,
-    keywords: hotel.seo.tags,
+    keywords: [
+      hotel.seo.focusKeyword,
+      ...hotel.seo.synonyms,
+      ...hotel.seo.longTailKeywords,
+      ...hotel.seo.targetLocations,
+      ...hotel.seo.tags,
+    ],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: hotel.seo.ogTitle,
       description: hotel.seo.ogDescription,
+      url: canonicalUrl,
+      siteName: "Supraja Hotels",
       images: [
         {
-          url: hotel.seo.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: hotel.seo.featuredImageAlt,
         },
       ],
+      locale: "en_IN",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: hotel.seo.ogTitle,
       description: hotel.seo.ogDescription,
-      images: [hotel.seo.ogImage],
+      images: [ogImageUrl],
     },
   };
 }
@@ -64,83 +81,34 @@ export default async function HotelPage({ params }: Props) {
     notFound();
   }
 
-  const hotelSchema = {
-    "@context": "https://schema.org",
-    "@type": "Hotel",
-    name: hotel.name,
-    description: hotel.seo.metaDescription,
-    telephone: `+91-${hotel.phone}`,
-    email: hotel.email,
-    image: `https://suprajahotels.com${hotel.images.hero}`,
-    url: `https://suprajahotels.com/hotels/${hotel.slug}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: hotel.location,
-      addressRegion: "Telangana",
-      addressCountry: "IN",
-    },
-    areaServed: hotel.seo.targetLocations,
-    amenityFeature: hotel.amenities.map((amenity) => ({
-      "@type": "LocationFeatureSpecification",
-      name: amenity,
-      value: true,
-    })),
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: hotel.seo.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-  
   return (
     <>
-<HotelSchema hotel={hotel} />
+      <HotelSchema hotel={hotel} />
 
-<BreadcrumbSchema
-  items={[
-    {
-      name: "Home",
-      url: "https://suprajahotels.com",
-    },
-    {
-      name: "Hotels",
-      url: "https://suprajahotels.com/hotels",
-    },
-    {
-      name: hotel.name,
-      url: `https://suprajahotels.com/hotels/${hotel.slug}`,
-    },
-  ]}
-/>
-
-<FAQSchema
-  faqs={
-    hotel.seo?.faqs?.map((faq) => ({
-      question: faq.question,
-      answer: faq.answer,
-    })) || []
-  }
-/>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(hotelSchema),
-        }}
+      <BreadcrumbSchema
+        items={[
+          {
+            name: "Home",
+            url: siteUrl,
+          },
+          {
+            name: "Hotels",
+            url: `${siteUrl}/hotels`,
+          },
+          {
+            name: hotel.name,
+            url: `${siteUrl}/hotels/${hotel.slug}`,
+          },
+        ]}
       />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
+      <FAQSchema
+        faqs={
+          hotel.seo?.faqs?.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          })) || []
+        }
       />
 
       <section className="bg-white px-4 py-12">
@@ -245,6 +213,20 @@ export default async function HotelPage({ params }: Props) {
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
                 <Link href="/hotels" className="text-blue-700 hover:underline">
                   Explore all Supraja Hotels
+                </Link>
+
+                <Link
+                  href="/offers"
+                  className="text-blue-700 hover:underline"
+                >
+                  View current stay offers
+                </Link>
+
+                <Link
+                  href="/gallery"
+                  className="text-blue-700 hover:underline"
+                >
+                  See hotel photos
                 </Link>
 
                 <Link
@@ -376,7 +358,7 @@ export default async function HotelPage({ params }: Props) {
           </aside>
         </div>
       </section>
-  <HotelSchema hotel={hotel} />
+
       {hotel.mapEmbed ? (
         <HotelMap title={hotel.name} embedUrl={hotel.mapEmbed} />
       ) : null}
