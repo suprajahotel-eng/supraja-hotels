@@ -1,4 +1,4 @@
-import Image, { type ImageProps } from "next/image";
+import SmartImage from "@/components/SmartImage";
 import { amenities } from "@/data/amenities";
 
 export default function AmenitiesSection() {

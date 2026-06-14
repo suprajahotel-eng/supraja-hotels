@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image, { type ImageProps } from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 
 export const metadata: Metadata = {
