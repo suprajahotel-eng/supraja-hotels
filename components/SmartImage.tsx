@@ -1,14 +1,14 @@
-import SmartImage from "@/components/SmartImage";
+import Image, { type ImageProps } from "next/image";
 
-type SmartImageProps = ImageProps & {
+type Props = ImageProps & {
   isHero?: boolean;
 };
 
-export default function SmartImage({
+export default function ({
   isHero = false,
   sizes,
   ...props
-}: SmartImageProps) {
+}: Props) {
   return (
     <Image
       {...props}
