@@ -87,14 +87,8 @@ export default async function HotelPage({ params }: Props) {
 
       <BreadcrumbSchema
         items={[
-          {
-            name: "Home",
-            url: siteUrl,
-          },
-          {
-            name: "Hotels",
-            url: `${siteUrl}/hotels`,
-          },
+          { name: "Home", url: siteUrl },
+          { name: "Hotels", url: `${siteUrl}/hotels` },
           {
             name: hotel.name,
             url: `${siteUrl}/hotels/${hotel.slug}`,
@@ -154,8 +148,7 @@ export default async function HotelPage({ params }: Props) {
             </p>
 
             <p className="mt-4 leading-8 text-slate-600">
-              Guests searching for{" "}
-              <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
+              Guests searching for <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
               <strong>{hotel.seo.synonyms[1]}</strong> or{" "}
               <strong>{hotel.seo.synonyms[2]}</strong> can consider{" "}
               {hotel.name} for a stay that balances comfort, location and
@@ -215,24 +208,15 @@ export default async function HotelPage({ params }: Props) {
                   Explore all Supraja Hotels
                 </Link>
 
-                <Link
-                  href="/offers"
-                  className="text-blue-700 hover:underline"
-                >
+                <Link href="/offers" className="text-blue-700 hover:underline">
                   View current stay offers
                 </Link>
 
-                <Link
-                  href="/gallery"
-                  className="text-blue-700 hover:underline"
-                >
+                <Link href="/gallery" className="text-blue-700 hover:underline">
                   See hotel photos
                 </Link>
 
-                <Link
-                  href="/contact"
-                  className="text-blue-700 hover:underline"
-                >
+                <Link href="/contact" className="text-blue-700 hover:underline">
                   Contact our booking team
                 </Link>
 
@@ -340,7 +324,7 @@ export default async function HotelPage({ params }: Props) {
 
             <a
               href={`tel:+91${hotel.phone}`}
-              className="mt-6 block rounded-full bg-blue-700 px-6 py-3 text-center text-sm font-semibold text-white"
+              className="mt-6 block rounded-full bg-blue-700 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-800"
             >
               Call Now
             </a>
@@ -351,10 +335,21 @@ export default async function HotelPage({ params }: Props) {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 block rounded-full bg-green-600 px-6 py-3 text-center text-sm font-semibold text-white"
+              className="mt-3 block rounded-full bg-green-600 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-green-700"
             >
               Book on WhatsApp
             </a>
+
+            {hotel.googleBusinessUrl ? (
+              <a
+                href={hotel.googleBusinessUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 block rounded-full border border-slate-300 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-900 transition hover:border-blue-700 hover:text-blue-700"
+              >
+                View on Google
+              </a>
+            ) : null}
           </aside>
         </div>
       </section>

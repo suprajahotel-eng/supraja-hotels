@@ -1,5 +1,16 @@
 import Link from "next/link";
 
+const localSeoLinks = [
+  { label: "Hotels in Madhapur", href: "/hotels/supraja-cyber-view" },
+  { label: "Hotels near Hitech City", href: "/hotels/supraja-cyber-view" },
+  { label: "Hotels near Kondapur", href: "/hotels/supraja-cyber-view" },
+  { label: "Hotels near Gachibowli", href: "/hotels/supraja-cyber-view" },
+  { label: "Hotels in Chandanagar", href: "/hotels/supraja-residency" },
+  { label: "Hotels near BHEL", href: "/hotels/supraja-residency" },
+  { label: "Hotels near Miyapur", href: "/hotels/supraja-residency" },
+  { label: "Budget Hotel in Chandanagar", href: "/hotels/supraja-lodge" },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -140,8 +151,8 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Direct Booking</h3>
 
             <p className="mt-5 text-sm leading-7 text-slate-300">
-              Contact Supraja Hotels directly for room availability, best
-              suitable property and booking assistance in Hyderabad.
+              Contact Supraja Hotels directly for room availability, suitable
+              property guidance and booking assistance in Hyderabad.
             </p>
 
             <a
@@ -159,7 +170,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-slate-800 pt-6">
+        <div className="mt-12 border-t border-slate-800 pt-8">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">
+            Popular Hotel Searches in Hyderabad
+          </h3>
+
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+            {localSeoLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="hover:text-amber-400"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-slate-800 pt-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p className="text-sm text-slate-400">
               © {year} Supraja Hotels. All rights reserved.

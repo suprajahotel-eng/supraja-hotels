@@ -13,6 +13,7 @@ type HotelSchemaProps = {
     checkInTime: string;
     checkOutTime: string;
     mapEmbed?: string;
+    googleBusinessUrl?: string;
     geo: {
       latitude: number;
       longitude: number;
@@ -37,6 +38,7 @@ export default function HotelSchema({ hotel }: HotelSchemaProps) {
     "@id": `${hotelUrl}#hotel`,
     name: hotel.name,
     url: hotelUrl,
+    sameAs: hotel.googleBusinessUrl ? [hotel.googleBusinessUrl] : undefined,
     description: hotel.description,
     image: [
       heroImage,
@@ -70,9 +72,10 @@ export default function HotelSchema({ hotel }: HotelSchemaProps) {
     smokingAllowed: false,
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, UPI, Credit Card, Debit Card",
-    hasMap: hotel.mapEmbed,
+    hasMap: hotel.googleBusinessUrl || hotel.mapEmbed,
     parentOrganization: {
       "@type": "Organization",
+      "@id": `${siteUrl}#organization`,
       name: "Supraja Hotels",
       url: siteUrl,
       email: "srisuprajahotels@gmail.com",
