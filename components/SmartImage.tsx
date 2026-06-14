@@ -7,12 +7,14 @@ type Props = ImageProps & {
 export default function ({
   isHero = false,
   sizes,
+  quality,
   ...props
 }: Props) {
   return (
     <Image
       {...props}
       priority={isHero}
+      quality={quality ?? 75}
       loading={isHero ? undefined : "lazy"}
       sizes={
         sizes ??
