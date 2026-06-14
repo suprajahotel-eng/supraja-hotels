@@ -181,9 +181,9 @@ const organizationSchema = {
       addressRegion: "Telangana",
       postalCode: "500050",
       addressCountry: "IN",
-    },
-  },
-],
+      },
+  ],
+};
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
