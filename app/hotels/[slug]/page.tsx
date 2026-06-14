@@ -8,6 +8,7 @@ import { hotels } from "@/data/hotels";
 import HotelGallery from "@/components/HotelGallery";
 import HotelMap from "@/components/HotelMap";
 import HotelSchema from "@/components/schema/HotelSchema";
+import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 
 type Props = {
   params: Promise<{
@@ -97,7 +98,24 @@ export default async function HotelPage({ params }: Props) {
       },
     })),
   };
+  
 <HotelSchema hotel={hotel} />
+<BreadcrumbSchema
+  items={[
+    {
+      name: "Home",
+      url: "https://suprajahotels.com",
+    },
+    {
+      name: "Hotels",
+      url: "https://suprajahotels.com/hotels",
+    },
+    {
+      name: hotel.name,
+      url: `https://suprajahotels.com/hotels/${hotel.slug}`,
+    },
+  ]}
+/>
   return (
     <>
       <script
