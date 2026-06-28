@@ -2,6 +2,15 @@ import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import {
+  MapPin,
+  Phone,
+  MessageCircle,
+  Star,
+  Navigation,
+  ShieldCheck,
+  BedDouble,
+} from "lucide-react";
 
 import { amenities } from "@/data/amenities";
 import { hotels } from "@/data/hotels";
@@ -105,229 +114,421 @@ export default async function HotelPage({ params }: Props) {
         }
       />
 
-      <section className="bg-white px-4 py-12">
-        <div className="container-custom">
-          <p className="text-sm font-semibold text-slate-500">
-            Supraja Hotels / {hotel.location}
-          </p>
+      <main className="bg-white text-slate-900">
+        <section className="relative overflow-hidden bg-slate-950 px-4 py-20 text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.2),transparent_34%)]" />
 
-          <h1 className="mt-3 text-4xl font-semibold text-slate-900 md:text-5xl">
-            {hotel.name} | <strong>{hotel.seo.focusKeyword}</strong>
-          </h1>
+          <div className="container-custom relative grid gap-12 lg:grid-cols-[52%_48%] lg:items-center">
+            <div>
+              <p className="inline-flex rounded-full bg-amber-400 px-5 py-2 text-sm font-bold text-slate-950">
+                Supraja Hotels / {hotel.location}
+              </p>
 
-          <p className="mt-4 max-w-4xl leading-8 text-slate-600">
-            <strong>{hotel.seo.focusKeyword}</strong> offering comfortable
-            rooms, direct booking support and convenient access to{" "}
-            <strong>{hotel.seo.targetLocations.slice(0, 4).join(", ")}</strong>{" "}
-            and nearby Hyderabad locations. {hotel.description}
-          </p>
+              <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+                {hotel.name} | {hotel.seo.focusKeyword}
+              </h1>
 
-          <div className="mt-8">
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+                <strong>{hotel.seo.focusKeyword}</strong> offering refined
+                accommodation, clean rooms, direct booking support and convenient
+                access to{" "}
+                <strong>{hotel.seo.targetLocations.slice(0, 4).join(", ")}</strong>
+                . {hotel.description}
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
+                {[
+                  "Direct Reservations",
+                  "Clean Rooms",
+                  "Prime Location",
+                  "WhatsApp Booking",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/15 bg-white/10 px-4 py-2"
+                  >
+                    ✓ {item}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-9 flex flex-wrap gap-4">
+                <a
+                  href={`tel:+91${hotel.phone}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
+                >
+                  <Phone size={18} />
+                  Call Now
+                </a>
+
+                <a
+                  href={`https://wa.me/91${hotel.whatsapp}?text=Hi%20I%20would%20like%20to%20book%20a%20room%20at%20${encodeURIComponent(
+                    hotel.name
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-green-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+                >
+                  <MessageCircle size={18} />
+                  WhatsApp Booking
+                </a>
+
+                {hotel.googleBusinessUrl ? (
+                  <a
+                    href={hotel.googleBusinessUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-950"
+                  >
+                    <Navigation size={18} />
+                    View on Google
+                  </a>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl lg:h-[500px]">
+              <SmartImage
+                src={hotel.images.hero}
+                alt={hotel.seo.featuredImageAlt}
+                fill
+                isHero
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 48vw"
+              />
+
+              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-5 text-slate-950 shadow-xl backdrop-blur">
+                <p className="flex items-center gap-2 text-sm font-semibold text-slate-500">
+                  <MapPin size={16} />
+                  {hotel.location}
+                </p>
+
+                <p className="mt-2 text-2xl font-bold">{hotel.phone}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-4 py-14">
+          <div className="container-custom">
             <HotelGallery
               hotelName={hotel.name}
               hero={hotel.images.hero}
               gallery={hotel.images.gallery}
             />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="bg-slate-50 px-4 py-16">
-        <div className="container-custom grid gap-10 lg:grid-cols-[65%_35%]">
-          <div>
-            <h2 className="text-3xl font-semibold text-slate-900">
-              <strong>{hotel.seo.focusKeyword}</strong> for Comfortable Stays
-            </h2>
+        <section className="bg-slate-50 px-4 py-16">
+          <div className="container-custom grid gap-10 lg:grid-cols-[65%_35%]">
+            <div>
+              <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                <p className="font-semibold uppercase tracking-[0.22em] text-amber-600">
+                  Stay Overview
+                </p>
 
-            <p className="mt-5 leading-8 text-slate-600">
-              <strong>{hotel.seo.focusKeyword}</strong> is a practical choice
-              for guests looking for clean rooms, easy access, helpful service
-              and direct booking convenience. {hotel.name} is designed for
-              business guests, families, visitors and travelers who want a
-              dependable stay in Hyderabad.
-            </p>
+                <h2 className="mt-3 text-3xl font-bold text-slate-950">
+                  {hotel.seo.focusKeyword} for Comfortable Stays
+                </h2>
 
-            <p className="mt-4 leading-8 text-slate-600">
-              Guests searching for <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
-              <strong>{hotel.seo.synonyms[1]}</strong> or{" "}
-              <strong>{hotel.seo.synonyms[2]}</strong> can consider{" "}
-              {hotel.name} for a stay that balances comfort, location and
-              booking support. The property is also useful for guests visiting{" "}
-              <strong>{hotel.seo.targetLocations.join(", ")}</strong>.
-            </p>
+                <p className="mt-5 leading-8 text-slate-600">
+                  <strong>{hotel.seo.focusKeyword}</strong> is a practical
+                  choice for guests looking for clean rooms, easy access,
+                  helpful service and direct booking convenience. {hotel.name} is
+                  designed for business guests, families, visitors and travelers
+                  who want a dependable stay in Hyderabad.
+                </p>
 
-            <h3 className="mt-10 text-2xl font-semibold text-slate-900">
-              Why Choose <strong>{hotel.seo.focusKeyword}</strong>
-            </h3>
-
-            <p className="mt-4 leading-8 text-slate-600">
-              <strong>{hotel.seo.synonyms[3]}</strong> and{" "}
-              <strong>{hotel.seo.synonyms[4]}</strong> are common needs for
-              Hyderabad guests. {hotel.name} supports these needs with practical
-              amenities, clean rooms, responsive assistance and convenient
-              access to nearby locations.
-            </p>
-
-            <ul className="mt-8 space-y-3 text-slate-700">
-              <li>✓ Comfortable and well-maintained rooms</li>
-              <li>✓ Direct booking support through phone and WhatsApp</li>
-              <li>✓ Convenient location with easy connectivity</li>
-              <li>✓ Family-friendly and business-friendly environment</li>
-              <li>✓ Essential amenities for a comfortable stay</li>
-            </ul>
-
-            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-              <h2 className="text-2xl font-semibold text-slate-900">
-                Nearby Locations and Landmarks
-              </h2>
-
-              <p className="mt-4 leading-8 text-slate-600">
-                {hotel.name} is useful for guests looking for accommodation near
-                these important Hyderabad locations:
-              </p>
-
-              <div className="mt-5 flex flex-wrap gap-3">
-                {hotel.seo.nearbyLandmarks.map((landmark) => (
-                  <span
-                    key={landmark}
-                    className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-800"
-                  >
-                    <strong>{landmark}</strong>
-                  </span>
-                ))}
+                <p className="mt-4 leading-8 text-slate-600">
+                  Guests searching for <strong>{hotel.seo.synonyms[0]}</strong>,{" "}
+                  <strong>{hotel.seo.synonyms[1]}</strong> or{" "}
+                  <strong>{hotel.seo.synonyms[2]}</strong> can consider{" "}
+                  {hotel.name} for a stay that balances comfort, location and
+                  booking support. The property is also useful for guests
+                  visiting{" "}
+                  <strong>{hotel.seo.targetLocations.join(", ")}</strong>.
+                </p>
               </div>
+
+              <div className="mt-10 grid gap-5 md:grid-cols-3">
+                {[
+                  {
+                    title: "Comfortable Rooms",
+                    text: "Clean, practical and well-maintained accommodation.",
+                    icon: BedDouble,
+                  },
+                  {
+                    title: "Direct Booking",
+                    text: "Call or WhatsApp for quick room availability.",
+                    icon: Phone,
+                  },
+                  {
+                    title: "Trusted Hospitality",
+                    text: "Helpful service for business and family guests.",
+                    icon: ShieldCheck,
+                  },
+                ].map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.title}
+                      className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-700">
+                        <Icon size={24} />
+                      </div>
+
+                      <h3 className="mt-5 text-lg font-bold text-slate-950">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-3 text-sm leading-7 text-slate-600">
+                        {item.text}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-7">
+                <h2 className="text-3xl font-bold text-slate-900">
+                  Why Choose {hotel.seo.focusKeyword}
+                </h2>
+
+                <p className="mt-5 leading-8 text-slate-600">
+                  <strong>{hotel.seo.synonyms[3]}</strong> and{" "}
+                  <strong>{hotel.seo.synonyms[4]}</strong> are common needs for
+                  Hyderabad guests. {hotel.name} supports these needs with
+                  practical amenities, clean rooms, responsive assistance and
+                  convenient access to nearby locations.
+                </p>
+
+                <ul className="mt-8 grid gap-3 text-slate-700 sm:grid-cols-2">
+                  <li>✓ Comfortable and well-maintained rooms</li>
+                  <li>✓ Direct booking support through phone and WhatsApp</li>
+                  <li>✓ Convenient location with easy connectivity</li>
+                  <li>✓ Family-friendly and business-friendly environment</li>
+                  <li>✓ Essential amenities for a comfortable stay</li>
+                  <li>✓ Helpful guidance before booking</li>
+                </ul>
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-7">
+                <h2 className="text-2xl font-bold text-slate-900">
+                  Nearby Locations and Landmarks
+                </h2>
+
+                <p className="mt-4 leading-8 text-slate-600">
+                  {hotel.name} is useful for guests looking for accommodation
+                  near these important Hyderabad locations:
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {hotel.seo.nearbyLandmarks.map((landmark) => (
+                    <span
+                      key={landmark}
+                      className="rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-800"
+                    >
+                      {landmark}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-7">
+                <h2 className="text-3xl font-bold text-slate-900">
+                  Amenities at {hotel.name}
+                </h2>
+
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {hotel.amenities.map((amenity) => {
+                    const amenityData = amenities.find(
+                      (item) => item.title === amenity
+                    );
+
+                    return (
+                      <div
+                        key={amenity}
+                        className="flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 text-slate-800"
+                      >
+                        {amenityData?.icon ? (
+                          <SmartImage
+                            src={amenityData.icon}
+                            alt={`${amenity} at ${hotel.name}`}
+                            width={34}
+                            height={34}
+                          />
+                        ) : (
+                          <div className="h-[34px] w-[34px] rounded-full bg-blue-100" />
+                        )}
+
+                        <span className="font-medium">{amenity}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-7">
+                <h2 className="text-2xl font-bold text-slate-900">
+                  Frequently Asked Questions
+                </h2>
+
+                <div className="mt-6 space-y-6">
+                  {hotel.seo.faqs.map((faq) => (
+                    <div key={faq.question}>
+                      <h3 className="font-bold text-slate-900">
+                        {faq.question}
+                      </h3>
+                      <p className="mt-2 leading-7 text-slate-600">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-7">
+                <h3 className="text-xl font-bold text-slate-900">
+                  Useful Links for Guests
+                </h3>
+
+                <div className="mt-4 flex flex-wrap gap-4 text-sm">
+                  <Link href="/hotels" className="text-blue-700 hover:underline">
+                    Explore all Supraja Hotels
+                  </Link>
+
+                  <Link href="/offers" className="text-blue-700 hover:underline">
+                    View current stay offers
+                  </Link>
+
+                  <Link href="/gallery" className="text-blue-700 hover:underline">
+                    See hotel photos
+                  </Link>
+
+                  <Link href="/contact" className="text-blue-700 hover:underline">
+                    Contact our booking team
+                  </Link>
+
+                  <a
+                    href="https://www.telanganatourism.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:underline"
+                  >
+                    Telangana Tourism
+                  </a>
+
+                  <a
+                    href="https://tourism.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:underline"
+                  >
+                    India Tourism
+                  </a>
+                </div>
+              </div>
+
+              <p className="mt-8 leading-8 text-slate-600">
+                For guests searching for a reliable{" "}
+                <strong>{hotel.seo.focusKeyword}</strong>, {hotel.name} offers
+                comfortable accommodation, helpful service, direct booking
+                support and a convenient location for the next Hyderabad visit.
+              </p>
             </div>
 
-            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 className="text-xl font-semibold text-slate-900">
-                Useful Links for Guests
+            <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-28">
+              <h3 className="text-2xl font-bold text-slate-900">
+                Direct Booking
               </h3>
 
-              <div className="mt-4 flex flex-wrap gap-4 text-sm">
-                <Link href="/hotels" className="text-blue-700 hover:underline">
-                  Explore all Supraja Hotels
-                </Link>
+              <p className="mt-3 text-slate-600">
+                Call or WhatsApp us for room availability and stay guidance.
+              </p>
 
-                <Link href="/offers" className="text-blue-700 hover:underline">
-                  View current stay offers
-                </Link>
+              <div className="mt-6 rounded-2xl bg-slate-50 p-5">
+                <p className="text-sm text-slate-500">Phone</p>
 
-                <Link href="/gallery" className="text-blue-700 hover:underline">
-                  See hotel photos
-                </Link>
+                <p className="mt-1 text-xl font-bold text-slate-900">
+                  {hotel.phone}
+                </p>
 
-                <Link href="/contact" className="text-blue-700 hover:underline">
-                  Contact our booking team
-                </Link>
+                <p className="mt-4 text-sm text-slate-500">Email</p>
 
-                <a
-                  href="https://www.telanganatourism.gov.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-700 hover:underline"
-                >
-                  Telangana Tourism
-                </a>
-
-                <a
-                  href="https://tourism.gov.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-700 hover:underline"
-                >
-                  India Tourism
-                </a>
+                <p className="mt-1 break-all text-sm font-medium text-slate-900">
+                  {hotel.email}
+                </p>
               </div>
-            </div>
 
-            <p className="mt-8 leading-8 text-slate-600">
-              For guests searching for a reliable{" "}
-              <strong>{hotel.seo.focusKeyword}</strong>, {hotel.name} offers
-              comfortable accommodation, helpful service, direct booking support
-              and a convenient location for the next Hyderabad visit.
-            </p>
+              <a
+                href={`tel:+91${hotel.phone}`}
+                className="mt-6 block rounded-full bg-blue-700 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-800"
+              >
+                Call Now
+              </a>
 
-            <h2 className="mt-10 text-3xl font-semibold text-slate-900">
-              Amenities at {hotel.name}
-            </h2>
+              <a
+                href={`https://wa.me/91${hotel.whatsapp}?text=Hi%20I%20would%20like%20to%20book%20a%20room%20at%20${encodeURIComponent(
+                  hotel.name
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 block rounded-full bg-green-600 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-green-700"
+              >
+                Book on WhatsApp
+              </a>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {hotel.amenities.map((amenity) => {
-                const amenityData = amenities.find(
-                  (item) => item.title === amenity
-                );
+              {hotel.googleBusinessUrl ? (
+                <a
+                  href={hotel.googleBusinessUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 block rounded-full border border-slate-300 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-900 transition hover:border-blue-700 hover:text-blue-700"
+                >
+                  View on Google
+                </a>
+              ) : null}
 
-                return (
-                  <div
-                    key={amenity}
-                    className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 text-slate-800"
-                  >
-                    {amenityData?.icon ? (
-                      <SmartImage
-                        src={amenityData.icon}
-                        alt={`${amenity} at ${hotel.name}`}
-                        width={34}
-                        height={34}
-                      />
-                    ) : (
-                      <div className="h-[34px] w-[34px] rounded-full bg-blue-100" />
-                    )}
+              <div className="mt-6 rounded-2xl border border-slate-200 p-5">
+                <div className="flex items-center gap-2">
+                  <span className="rounded bg-green-600 px-2 py-1 text-xs font-semibold text-white">
+                    4.5
+                  </span>
 
-                    <span>{amenity}</span>
+                  <div className="flex text-green-600">
+                    {[1, 2, 3, 4, 5].map((item) => (
+                      <Star key={item} size={14} fill="currentColor" />
+                    ))}
                   </div>
-                );
-              })}
-            </div>
+                </div>
 
-            <div className="mt-10 rounded-2xl bg-white p-6">
-              <h2 className="text-2xl font-semibold text-slate-900">
-                Frequently Asked Questions
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  Guest-friendly stay with direct booking assistance and
+                  convenient Hyderabad access.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {hotel.mapEmbed ? (
+          <HotelMap title={hotel.name} embedUrl={hotel.mapEmbed} />
+        ) : null}
+
+        <section className="bg-slate-950 px-4 py-16 text-white">
+          <div className="container-custom flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div>
+              <h2 className="text-3xl font-bold">
+                Book Your Stay at {hotel.name}
               </h2>
 
-              <div className="mt-6 space-y-6">
-                {hotel.seo.faqs.map((faq) => (
-                  <div key={faq.question}>
-                    <h3 className="font-semibold text-slate-900">
-                      {faq.question}
-                    </h3>
-                    <p className="mt-2 leading-7 text-slate-600">
-                      {faq.answer}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <aside className="h-fit rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-28">
-            <h3 className="text-2xl font-semibold text-slate-900">
-              Direct Booking
-            </h3>
-
-            <p className="mt-3 text-slate-600">
-              Call or WhatsApp us for room availability.
-            </p>
-
-            <div className="mt-6 rounded-xl bg-slate-50 p-5">
-              <p className="text-sm text-slate-500">Phone</p>
-
-              <p className="mt-1 text-xl font-semibold text-slate-900">
-                {hotel.phone}
-              </p>
-
-              <p className="mt-4 text-sm text-slate-500">Email</p>
-
-              <p className="mt-1 break-all text-sm font-medium text-slate-900">
-                {hotel.email}
+              <p className="mt-3 text-slate-300">
+                Speak with Supraja Hotels for room availability, direct booking
+                support and property guidance.
               </p>
             </div>
-
-            <a
-              href={`tel:+91${hotel.phone}`}
-              className="mt-6 block rounded-full bg-blue-700 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-800"
-            >
-              Call Now
-            </a>
 
             <a
               href={`https://wa.me/91${hotel.whatsapp}?text=Hi%20I%20would%20like%20to%20book%20a%20room%20at%20${encodeURIComponent(
@@ -335,28 +536,13 @@ export default async function HotelPage({ params }: Props) {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 block rounded-full bg-green-600 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-green-700"
+              className="rounded-full bg-green-600 px-8 py-3 font-semibold text-white transition hover:bg-green-700"
             >
               Book on WhatsApp
             </a>
-
-            {hotel.googleBusinessUrl ? (
-              <a
-                href={hotel.googleBusinessUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 block rounded-full border border-slate-300 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-900 transition hover:border-blue-700 hover:text-blue-700"
-              >
-                View on Google
-              </a>
-            ) : null}
-          </aside>
-        </div>
-      </section>
-
-      {hotel.mapEmbed ? (
-        <HotelMap title={hotel.name} embedUrl={hotel.mapEmbed} />
-      ) : null}
+          </div>
+        </section>
+      </main>
     </>
   );
 }

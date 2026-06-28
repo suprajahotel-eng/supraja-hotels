@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import {
   MapPin,
@@ -9,7 +8,11 @@ import {
   ShieldCheck,
   BedDouble,
   Phone,
+  MessageCircle,
+  Building2,
 } from "lucide-react";
+
+import SmartImage from "@/components/SmartImage";
 import { hotels } from "@/data/hotels";
 
 const siteUrl = "https://suprajahotels.com";
@@ -60,19 +63,43 @@ export const metadata: Metadata = {
 };
 
 const benefits = [
-  { title: "Prime Locations", icon: MapPin },
-  { title: "Clean Rooms", icon: BedDouble },
-  { title: "Free WiFi", icon: Wifi },
-  { title: "Parking Support", icon: Car },
-  { title: "Trusted Hospitality", icon: ShieldCheck },
-  { title: "Guest Friendly", icon: Star },
+  {
+    title: "Impeccably Maintained Rooms",
+    text: "Clean, comfortable and well-kept rooms for business visits, family stays and short city trips.",
+    icon: BedDouble,
+  },
+  {
+    title: "Strategic Locations",
+    text: "Stay near Madhapur, Hitech City, Chandanagar, BHEL, Miyapur and major access points.",
+    icon: MapPin,
+  },
+  {
+    title: "Complimentary WiFi",
+    text: "Convenient WiFi access for work, calls, browsing and daily communication.",
+    icon: Wifi,
+  },
+  {
+    title: "Parking Support",
+    text: "Practical parking assistance for guests travelling by personal or business vehicles.",
+    icon: Car,
+  },
+  {
+    title: "Trusted Hospitality",
+    text: "Responsive support, direct communication and dependable service throughout the stay.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Direct Booking Assistance",
+    text: "Call or WhatsApp our team for room availability, stay guidance and booking support.",
+    icon: Phone,
+  },
 ];
 
 const hotelDescriptions: Record<string, string> = {
   "supraja-cyber-view":
-    "A comfortable hotel in Madhapur with easy access to Hitech City, Cyber Towers, Kondapur and Gachibowli.",
+    "A refined hotel in Madhapur with convenient access to Hitech City, Cyber Towers, Kondapur and Gachibowli.",
   "supraja-residency":
-    "A trusted hotel in Chandanagar for families, professionals and guests looking for access to Gangaram, BHEL and Miyapur.",
+    "A trusted hotel in Chandanagar for families, professionals and guests visiting Gangaram, BHEL and Miyapur.",
   "supraja-lodge":
     "A budget-friendly hotel in Chandanagar with practical amenities, clean rooms and direct booking support.",
 };
@@ -109,27 +136,45 @@ export default function HotelsPage() {
         }}
       />
 
-      <main>
-        <section className="bg-slate-950 px-4 py-24 text-white">
-          <div className="container-custom grid items-center gap-12 lg:grid-cols-[52%_48%]">
+      <main className="bg-white text-slate-900">
+        <section className="relative overflow-hidden bg-slate-950 px-4 py-24 text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.18),transparent_30%)]" />
+
+          <div className="container-custom relative grid items-center gap-12 lg:grid-cols-[52%_48%]">
             <div>
-              <p className="mb-5 inline-block rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-slate-950">
+              <p className="mb-5 inline-flex rounded-full bg-amber-400 px-5 py-2 text-sm font-bold text-slate-950">
                 Supraja Hotels Hyderabad
               </p>
 
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
-                Hotels in Hyderabad for Comfortable and Convenient Stays
+              <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+                Hotels in Hyderabad for Refined, Convenient Stays
               </h1>
 
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
                 <strong>Hotels in Hyderabad</strong> by Supraja Hotels are
-                designed for guests who need clean rooms, prime locations,
+                designed for guests who value clean rooms, strategic locations,
                 direct hotel booking support and dependable hospitality across{" "}
                 <strong>Madhapur</strong>, <strong>Hitech City</strong> and{" "}
                 <strong>Chandanagar</strong>.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-7 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
+                {[
+                  "Direct Reservations",
+                  "Clean Rooms",
+                  "Prime Locations",
+                  "WhatsApp Booking",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/15 bg-white/10 px-4 py-2"
+                  >
+                    ✓ {item}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-9 flex flex-wrap gap-4">
                 <a
                   href="tel:+919550776161"
                   className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
@@ -142,14 +187,15 @@ export default function HotelsPage() {
                   href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20know%20room%20availability%20at%20Supraja%20Hotels"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-green-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+                  className="inline-flex items-center gap-2 rounded-full bg-green-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
                 >
+                  <MessageCircle size={18} />
                   WhatsApp Booking
                 </a>
               </div>
             </div>
 
-            <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl lg:h-[480px]">
+            <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl lg:h-[500px]">
               <SmartImage
                 src="/images/homepage/hero.webp"
                 alt="Hotels in Hyderabad by Supraja Hotels"
@@ -158,18 +204,27 @@ export default function HotelsPage() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 48vw"
               />
+
+              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-5 text-slate-950 shadow-xl backdrop-blur">
+                <p className="text-sm font-semibold text-slate-500">
+                  Direct Booking Support
+                </p>
+                <p className="mt-1 text-2xl font-bold">
+                  Madhapur • Hitech City • Chandanagar
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="bg-white px-4 py-20">
           <div className="container-custom">
-            <div className="max-w-3xl">
-              <p className="font-semibold uppercase tracking-[0.2em] text-amber-600">
+            <div className="max-w-4xl">
+              <p className="font-semibold uppercase tracking-[0.22em] text-amber-600">
                 Our Hotels
               </p>
 
-              <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">
+              <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-5xl">
                 Choose Supraja Hotels in Hyderabad
               </h2>
 
@@ -180,8 +235,8 @@ export default function HotelsPage() {
                 <strong>budget hotels in Hyderabad</strong>,{" "}
                 <strong>business hotels in Hyderabad</strong>,{" "}
                 <strong>family hotels in Hyderabad</strong> or{" "}
-                <strong>hotels near Hitech City</strong>, Supraja Hotels gives
-                you practical comfort with direct support.
+                <strong>hotels near Hitech City</strong>, Supraja Hotels offers
+                practical comfort with direct reservation support.
               </p>
             </div>
 
@@ -190,7 +245,7 @@ export default function HotelsPage() {
                 <Link
                   key={hotel.slug}
                   href={`/hotels/${hotel.slug}`}
-                  className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl lg:grid-cols-[320px_1fr_220px]"
+                  className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl lg:grid-cols-[330px_1fr_230px]"
                 >
                   <div className="relative h-64 bg-slate-100 lg:h-full">
                     <SmartImage
@@ -198,7 +253,7 @@ export default function HotelsPage() {
                       alt={`${hotel.name} in ${hotel.location}`}
                       width={700}
                       height={500}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />
                   </div>
 
@@ -208,11 +263,11 @@ export default function HotelsPage() {
                       {hotel.location}
                     </p>
 
-                    <h3 className="mt-2 text-2xl font-semibold text-slate-950">
+                    <h3 className="mt-2 text-2xl font-bold text-slate-950">
                       {hotel.name}
                     </h3>
 
-                    <div className="mt-3 flex items-center gap-2">
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
                       <span className="rounded bg-green-600 px-2 py-1 text-xs font-semibold text-white">
                         4.5
                       </span>
@@ -245,12 +300,23 @@ export default function HotelsPage() {
                           </span>
                         ))}
                     </div>
+
+                    <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
+                      {hotel.amenities.slice(0, 4).map((amenity) => (
+                        <span
+                          key={amenity}
+                          className="rounded-full bg-slate-100 px-3 py-1"
+                        >
+                          {amenity}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="flex items-center justify-center border-t border-slate-200 p-7 lg:border-l lg:border-t-0">
                     <div className="text-center">
-                      <p className="text-xs text-slate-500">Call</p>
-                      <p className="mt-1 font-semibold text-slate-950">
+                      <p className="text-xs text-slate-500">Direct Booking</p>
+                      <p className="mt-1 text-lg font-bold text-slate-950">
                         {hotel.phone}
                       </p>
 
@@ -266,40 +332,37 @@ export default function HotelsPage() {
         </section>
 
         <section className="bg-slate-50 px-4 py-20">
-          <div className="container-custom grid gap-12 lg:grid-cols-[38%_62%]">
-            <div>
-              <p className="font-semibold uppercase tracking-[0.2em] text-amber-600">
+          <div className="container-custom">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-semibold uppercase tracking-[0.22em] text-amber-600">
                 Why Choose Us
               </p>
 
-              <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">
-                Why Choose Hotels in Hyderabad by Supraja Hotels
+              <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-5xl">
+                Trusted Hyderabad Hospitality, Designed Around Your Stay
               </h2>
-
-              <p className="mt-5 leading-8 text-slate-600">
-                Supraja Hotels focuses on practical hospitality. Guests choose
-                us because our properties are accessible, comfortable and
-                supported by direct booking assistance through phone and
-                WhatsApp.
-              </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {benefits.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.title}
-                    className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+                    className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                   >
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-800">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-700">
                       <Icon size={24} />
                     </div>
 
-                    <h3 className="text-lg font-semibold text-slate-950">
+                    <h3 className="text-xl font-bold text-slate-950">
                       {item.title}
                     </h3>
+
+                    <p className="mt-3 leading-7 text-slate-600">
+                      {item.text}
+                    </p>
                   </div>
                 );
               })}
@@ -311,7 +374,11 @@ export default function HotelsPage() {
           <div className="container-custom">
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
-                <h2 className="text-3xl font-semibold text-slate-950">
+                <p className="font-semibold uppercase tracking-[0.22em] text-amber-600">
+                  Direct Reservations
+                </p>
+
+                <h2 className="mt-3 text-3xl font-bold text-slate-950">
                   Hotel Booking in Hyderabad with Direct Support
                 </h2>
 
@@ -319,10 +386,7 @@ export default function HotelsPage() {
                   Direct booking helps guests speak with the hotel team before
                   confirming a stay. This is useful for checking room
                   availability, location suitability, check-in requirements and
-                  the best property based on travel purpose. Supraja Hotels
-                  keeps the booking process simple for guests visiting Hyderabad
-                  for business, family visits, medical needs and short city
-                  stays.
+                  the best property based on travel purpose.
                 </p>
 
                 <ul className="mt-6 space-y-3 text-slate-700">
@@ -330,14 +394,14 @@ export default function HotelsPage() {
                   <li>✓ Hotels in Madhapur and Chandanagar</li>
                   <li>✓ Comfortable rooms for business and family guests</li>
                   <li>✓ Easy access to key Hyderabad locations</li>
-                  <li>
-                    ✓ Practical amenities including WiFi and parking support
-                  </li>
+                  <li>✓ Practical amenities including WiFi and parking support</li>
                 </ul>
               </div>
 
-              <div>
-                <h3 className="text-2xl font-semibold text-slate-950">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+                <Building2 className="h-12 w-12 text-amber-600" />
+
+                <h3 className="mt-5 text-2xl font-bold text-slate-950">
                   Hotels in Hyderabad for Business and Family Guests
                 </h3>
 
@@ -358,7 +422,7 @@ export default function HotelsPage() {
             </div>
 
             <div className="mt-10 rounded-3xl bg-slate-50 p-7">
-              <h3 className="text-xl font-semibold text-slate-950">
+              <h3 className="text-xl font-bold text-slate-950">
                 Helpful Travel Resources
               </h3>
 
@@ -411,7 +475,7 @@ export default function HotelsPage() {
         <section className="bg-slate-950 px-4 py-16 text-white">
           <div className="container-custom flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
-              <h2 className="text-3xl font-semibold">
+              <h2 className="text-3xl font-bold">
                 Book Direct and Stay Better
               </h2>
               <p className="mt-3 text-slate-300">

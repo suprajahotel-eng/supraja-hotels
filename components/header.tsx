@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Phone,
   MessageCircle,
@@ -24,9 +25,46 @@ const hotelLinks = [
   { label: "Hotel Supraja Lodge", href: "/hotels/supraja-lodge" },
 ];
 
+function getHeaderContact(pathname: string) {
+  if (pathname.includes("/hotels/supraja-residency")) {
+    return {
+      phone: "9346316161",
+      whatsapp: "9346316161",
+      label: "Residency",
+    };
+  }
+
+  if (pathname.includes("/hotels/supraja-lodge")) {
+    return {
+      phone: "9348446161",
+      whatsapp: "9348446161",
+      label: "Lodge",
+    };
+  }
+
+  if (pathname.includes("/hotels/supraja-cyber-view")) {
+    return {
+      phone: "9550776161",
+      whatsapp: "9550776161",
+      label: "Cyber View",
+    };
+  }
+
+  return {
+    phone: "9550776161",
+    whatsapp: "9550776161",
+    label: "Supraja Hotels",
+  };
+}
+
 export default function Header() {
+  const pathname = usePathname();
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hotelsOpen, setHotelsOpen] = useState(false);
+
+  const contact = getHeaderContact(pathname);
+  const whatsappText = `Hi I would like to book a room at ${contact.label}`;
 
   const closeMenu = () => {
     setMobileOpen(false);
@@ -36,21 +74,34 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
       <div className="container-custom flex items-center justify-between px-4 py-4">
-        <Link href="/" className="text-2xl font-bold text-blue-800" onClick={closeMenu}>
+        <Link
+          href="/"
+          className="text-2xl font-bold text-blue-800"
+          onClick={closeMenu}
+        >
           Supraja Hotels
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">
-          <Link href="/" className="text-sm font-semibold text-slate-700 transition hover:text-amber-500">
+          <Link
+            href="/"
+            className="text-sm font-semibold text-slate-700 transition hover:text-amber-500"
+          >
             Home
           </Link>
 
-          <Link href="/about" className="text-sm font-semibold text-slate-700 transition hover:text-amber-500">
+          <Link
+            href="/about"
+            className="text-sm font-semibold text-slate-700 transition hover:text-amber-500"
+          >
             About
           </Link>
 
           <div className="group relative">
-            <Link href="/hotels" className="flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-amber-500">
+            <Link
+              href="/hotels"
+              className="flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-amber-500"
+            >
               Hotels <ChevronDown size={15} />
             </Link>
 
@@ -68,7 +119,11 @@ export default function Header() {
           </div>
 
           {navLinks.slice(2).map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-semibold text-slate-700 transition hover:text-amber-500">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-semibold text-slate-700 transition hover:text-amber-500"
+            >
               {link.label}
             </Link>
           ))}
@@ -76,15 +131,17 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="tel:+919550776161"
+            href={`tel:+91${contact.phone}`}
             className="flex items-center gap-2 rounded-full bg-blue-800 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-900"
           >
             <Phone size={16} />
-            Call
+            {contact.phone}
           </a>
 
           <a
-            href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room"
+            href={`https://wa.me/91${contact.whatsapp}?text=${encodeURIComponent(
+              whatsappText
+            )}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full bg-green-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-700"
@@ -172,16 +229,18 @@ export default function Header() {
 
           <div className="mt-4 grid grid-cols-2 gap-3">
             <a
-              href="tel:+919550776161"
+              href={`tel:+91${contact.phone}`}
               onClick={closeMenu}
               className="flex items-center justify-center gap-2 rounded-full bg-blue-800 px-4 py-3 text-sm font-semibold text-white"
             >
               <Phone size={16} />
-              Call
+              {contact.phone}
             </a>
 
             <a
-              href="https://wa.me/919550776161?text=Hi%20I%20would%20like%20to%20book%20a%20room"
+              href={`https://wa.me/91${contact.whatsapp}?text=${encodeURIComponent(
+                whatsappText
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}

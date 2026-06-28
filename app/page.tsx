@@ -159,7 +159,7 @@ export default function HomePage() {
               </p>
 
               <h1 className="max-w-2xl text-4xl font-bold leading-tight md:text-6xl">
-                Comfortable Hotels in Hyderabad Near Hitech City and Chandanagar
+                Comfortable Hotels Near Hitech City and Chandanagar
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
