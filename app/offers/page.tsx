@@ -149,7 +149,7 @@ export default function OffersPage() {
                 Stay Offers at Supraja Hotels
               </span>
 
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight tracking-tight md:text-6xl">
                 Hotel Offers in Hyderabad for Direct, Corporate and Group Stays
               </h1>
 

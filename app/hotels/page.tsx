@@ -146,7 +146,7 @@ export default function HotelsPage() {
                 Supraja Hotels Hyderabad
               </p>
 
-              <h1 className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight tracking-tight md:text-6xl">
                 Hotels in Hyderabad for Refined, Convenient Stays
               </h1>
 

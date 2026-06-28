@@ -158,7 +158,7 @@ export default function HomePage() {
                 Supraja Hotels Hyderabad
               </p>
 
-              <h1 className="max-w-2xl text-4xl font-bold leading-tight md:text-6xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight tracking-tight md:text-6xl">
                 Comfortable Hotels Near Hitech City and Chandanagar
               </h1>
 

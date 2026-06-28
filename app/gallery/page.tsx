@@ -95,7 +95,7 @@ export default function GalleryPage() {
                 Supraja Hotels Gallery
               </span>
 
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight tracking-tight md:text-6xl">
                 Hotel Gallery of Supraja Hotels in Hyderabad
               </h1>
 
