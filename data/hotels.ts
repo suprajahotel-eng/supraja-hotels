@@ -118,7 +118,7 @@ export const hotels = [
       ],
       featuredImageAlt:
         "Hotel in Madhapur Hyderabad at Hotel Supraja Cyber View",
-      ogTitle: "Hotel Supraja Cyber View | Hotel in Madhapur Hyderabad",
+      ogTitle: "Hotel Supraja Cyber View | Hitech City Hyderabad",
       ogDescription:
         "Book Hotel Supraja Cyber View for a comfortable stay near Hitech City, Madhapur, Kondapur and Gachibowli.",
       ogImage: "/images/cyber-view/hero.webp",
@@ -242,7 +242,7 @@ export const hotels = [
       ],
       featuredImageAlt:
         "Hotel in Chandanagar Hyderabad at Hotel Supraja Residency",
-      ogTitle: "Hotel Supraja Residency | Hotel in Chandanagar Hyderabad",
+      ogTitle: "Hotel Supraja Residency | Chandanagar Hyderabad",
       ogDescription:
         "Book Hotel Supraja Residency in Chandanagar for clean rooms, direct booking support and convenient access to Gangaram, BHEL, Serilingampally, Nallagandla and Miyapur.",
       ogImage: "/images/residency/hero.webp",
