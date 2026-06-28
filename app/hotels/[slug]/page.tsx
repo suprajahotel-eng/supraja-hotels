@@ -124,7 +124,7 @@ export default async function HotelPage({ params }: Props) {
                 Supraja Hotels / {hotel.location}
               </p>
 
-              <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight md:text-6xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight tracking-tight md:text-6xl">
                 {hotel.name} | {hotel.seo.focusKeyword}
               </h1>
 
