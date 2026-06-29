@@ -4,7 +4,7 @@ type Props = ImageProps & {
   isHero?: boolean;
 };
 
-export default function ({
+export default function SmartImage({
   isHero = false,
   sizes,
   quality,
@@ -14,8 +14,9 @@ export default function ({
     <Image
       {...props}
       priority={isHero}
-      quality={quality ?? 75}
-      loading={isHero ? undefined : "lazy"}
+      loading={isHero ? "eager" : "lazy"}
+      quality={quality ?? (isHero ? 70 : 60)}
+      placeholder="empty"
       sizes={
         sizes ??
         (isHero
