@@ -19,7 +19,7 @@ import { hotels } from "@/data/hotels";
 export const metadata: Metadata = {
   title: "Supraja Hotels | Hotels in Hyderabad",
   description:
-    "Supraja Hotels offers comfortable stays in Hyderabad with hotels in Hitech City, Madhapur and Chandanagar. Book directly for room availability.",
+    "Book clean and convenient hotels in Hyderabad near Hitech City, Madhapur, Chandanagar, BHEL and Miyapur with Supraja Hotels.",
   keywords: [
     "Hotels in Hyderabad",
     "Hotel booking Hyderabad",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Supraja Hotels | Hotels in Hyderabad",
     description:
-      "Comfortable hotel stays in Hyderabad with direct booking support at Supraja Hotels.",
+      "Clean rooms, prime Hyderabad locations and direct booking support at Supraja Hotels.",
     url: "https://suprajahotels.com",
     siteName: "Supraja Hotels",
     images: [
@@ -56,55 +56,55 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Supraja Hotels | Hotels in Hyderabad",
     description:
-      "Comfortable rooms, prime Hyderabad locations and direct booking support across Supraja Hotels.",
+      "Clean rooms, prime Hyderabad locations and direct booking support at Supraja Hotels.",
     images: ["https://suprajahotels.com/images/homepage/hero.webp"],
   },
 };
 
 const hotelDescriptions: Record<string, string> = {
   "supraja-cyber-view":
-    "A refined stay near Hitech City, Madhapur, Kondapur and Gachibowli for business guests, professionals and city travelers.",
+    "A polished business stay near Hitech City, Madhapur, Cyber Towers, Kondapur and Gachibowli.",
   "supraja-residency":
-    "A trusted Chandanagar hotel with convenient access to Gangaram, BHEL, Serilingampally, Nallagandla and Miyapur.",
+    "A reliable Chandanagar stay close to Gangaram, BHEL, Serilingampally, Nallagandla and Miyapur.",
   "supraja-lodge":
-    "A budget-friendly stay in Chandanagar with practical comfort, direct booking support and access to BHEL, Miyapur and nearby areas.",
+    "A value-focused stay in Chandanagar with essential comfort and easy access to BHEL and Miyapur.",
 };
 
 const featureCards = [
   {
-    title: "Impeccably Maintained Rooms",
+    title: "Clean, Well-Kept Rooms",
     description:
-      "Clean, practical and well-kept rooms designed for comfortable short stays, family visits and business travel.",
+      "Fresh, functional rooms suited for business visits, family travel and short city stays.",
     icon: BedDouble,
   },
   {
-    title: "Strategic Hyderabad Locations",
+    title: "Prime City Access",
     description:
-      "Stay close to Madhapur, Hitech City, Chandanagar, BHEL, Miyapur and major Hyderabad access points.",
+      "Stay near Hitech City, Madhapur, Chandanagar, BHEL, Miyapur and key Hyderabad corridors.",
     icon: MapPin,
   },
   {
-    title: "Hassle-Free Direct Reservations",
+    title: "Direct Booking Support",
     description:
-      "Speak directly with our team for room availability, hotel guidance, corporate stays and group bookings.",
+      "Call or WhatsApp our team for live availability, quick guidance and instant confirmation.",
     icon: Phone,
   },
   {
     title: "Complimentary WiFi",
     description:
-      "Stay connected with convenient WiFi access across our properties for work, calls and daily browsing.",
+      "Reliable internet access for work, calls, browsing and everyday convenience.",
     icon: Wifi,
   },
   {
-    title: "Parking Support",
+    title: "Parking Assistance",
     description:
-      "Practical parking assistance for guests visiting our Hyderabad hotels with personal or business vehicles.",
+      "Practical parking support for guests arriving by personal or business vehicles.",
     icon: Car,
   },
   {
-    title: "Family and Business Friendly",
+    title: "Business & Family Friendly",
     description:
-      "A dependable stay experience for families, working professionals, corporate guests and long-stay visitors.",
+      "A dependable stay experience for professionals, families, groups and long-stay guests.",
     icon: ShieldCheck,
   },
 ];
@@ -130,7 +130,7 @@ export default function HomePage() {
     name: "Supraja Hotels",
     url: "https://suprajahotels.com",
     description:
-      "Hotels in Hyderabad with direct booking support across Hitech City, Madhapur, Chandanagar, BHEL and Miyapur.",
+      "Hotels in Hyderabad near Hitech City, Madhapur, Chandanagar, BHEL and Miyapur.",
     publisher: {
       "@id": "https://suprajahotels.com#organization",
     },
@@ -159,22 +159,22 @@ export default function HomePage() {
               </p>
 
               <h1 className="mt-6 max-w-4xl text-4xl font-medium leading-tight tracking-tight md:text-6xl">
-                Comfortable Hotels Near Hitech City and Chandanagar
+                Clean Hotel Rooms Near Hitech City & Chandanagar
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                <strong>Hotels in Hyderabad</strong> by Supraja Hotels offer
-                refined accommodation, clean rooms, prime access and direct
-                booking support near <strong>Hitech City</strong>,{" "}
+                Book trusted <strong>hotels in Hyderabad</strong> with prime
+                access to <strong>Hitech City</strong>,{" "}
                 <strong>Madhapur</strong>, <strong>Chandanagar</strong>,{" "}
-                <strong>BHEL</strong> and <strong>Miyapur</strong>.
+                <strong>BHEL</strong> and <strong>Miyapur</strong>. Ideal for
+                business, family and short-stay guests.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3 text-xs font-semibold text-slate-200">
                 {[
-                  "Direct Hotel Booking",
-                  "Best Available Guidance",
-                  "Complimentary WiFi",
+                  "Direct Booking",
+                  "Best Available Rates",
+                  "Free WiFi",
                   "24x7 Assistance",
                 ].map((item) => (
                   <span
@@ -236,18 +236,13 @@ export default function HomePage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-5xl">
-              Choose Supraja Hotels in Hyderabad
+              Choose Your Stay in Hyderabad
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Supraja Hotels brings together three convenient properties for
-              guests searching for <strong>hotel booking Hyderabad</strong>,{" "}
-              <strong>hotels near Hitech City</strong>,{" "}
-              <strong>hotels in Madhapur</strong>,{" "}
-              <strong>hotels in Chandanagar</strong> and{" "}
-              <strong>budget hotels Hyderabad</strong>. Each hotel offers
-              dependable comfort, thoughtful amenities, direct booking support
-              and smooth access to key Hyderabad destinations.
+              Select from three well-located Supraja Hotels near Hyderabad's
+              business, residential and transit zones. Clean rooms, practical
+              amenities and direct booking support make every stay simple.
             </p>
           </div>
 
@@ -309,7 +304,10 @@ export default function HomePage() {
 
                   <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold text-slate-600">
                     {hotel.amenities.slice(0, 4).map((amenity) => (
-                      <span key={amenity} className="rounded-full bg-slate-100 px-3 py-1">
+                      <span
+                        key={amenity}
+                        className="rounded-full bg-slate-100 px-3 py-1"
+                      >
                         {amenity}
                       </span>
                     ))}
@@ -338,11 +336,11 @@ export default function HomePage() {
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-semibold uppercase tracking-[0.22em] text-amber-600">
-              Why Choose Us
+              Why Guests Choose Us
             </p>
 
             <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-5xl">
-              Trusted Hyderabad Hospitality, Designed Around Your Stay
+              Essential Comfort, Prime Access
             </h2>
           </div>
 
@@ -385,14 +383,13 @@ export default function HomePage() {
                 </p>
 
                 <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-4xl">
-                  Conveniently Located Near Hyderabad Business and Lifestyle Destinations
+                  Stay Close to Hyderabad's Key Locations
                 </h2>
 
                 <p className="mt-5 max-w-4xl leading-8 text-slate-600">
-                  Supraja Hotels helps guests searching for hotels near major
-                  Hyderabad locations including Hitech City, Madhapur,
-                  Chandanagar, BHEL, Miyapur, Serilingampally, Kondapur and
-                  Gachibowli.
+                  Supraja Hotels offers convenient access to Hitech City,
+                  Madhapur, Kondapur, Gachibowli, Chandanagar, BHEL,
+                  Serilingampally, Nallagandla and Miyapur.
                 </p>
               </div>
 
@@ -439,13 +436,12 @@ export default function HomePage() {
       <section className="container-custom px-4 py-16 lg:py-24">
         <div className="rounded-[2rem] bg-slate-950 p-8 text-center text-white shadow-2xl sm:p-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Ready to Book Your Stay?
+            Book Direct for the Best Rate
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300">
-            Contact Supraja Hotels directly for room availability, best
-            available guidance, corporate stays and group reservations across
-            Hyderabad.
+            Call or WhatsApp Supraja Hotels for instant availability, direct
+            rates and quick room confirmation across Hyderabad.
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
